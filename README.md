@@ -1,6 +1,6 @@
 # Preview
 
-<img width="1743" alt="Screenshot 2024-06-02 at 21 11 32" src="https://gist.github.com/assets/3619283/14745e33-2967-41df-ba65-f3655774ae5f">
+<img width="1743" alt="Preview" src="preview.png">
 
 # Description
 
