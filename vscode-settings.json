@@ -1,0 +1,143 @@
+{
+  "editor.accessibilitySupport": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.fontFamily": "Dank Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.lineHeight": 1.75,
+  "editor.suggestFontSize": 0,
+  "editor.suggestLineHeight": 28,
+  "editor.formatOnSave": true,
+  "editor.lightbulb.enabled": "off",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderWhitespace": "boundary",
+  "editor.overviewRulerBorder": false,
+  "editor.scrollbar.verticalScrollbarSize": 4,
+  "editor.scrollbar.horizontalScrollbarSize": 4,
+  "breadcrumbs.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "editor.cursorBlinking": "solid",
+  "extensions.ignoreRecommendations": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.renderLineHighlight": "all",
+  "editor.renderControlCharacters": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.rulers": [80, 100, 120],
+  "explorer.autoReveal": false,
+  "files.insertFinalNewline": true,
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "terminal.external.osxExec": "iTerm2.app",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "Dank Mono, Hack Nerd Font",
+  "scm.diffDecorations": "none",
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.tabs.location": "left",
+  "workbench.colorCustomizations": {
+    "terminalCursor.foreground": "#C45DFF",
+    "terminal.background": "#00000000",
+    "editorGroupHeader.tabsBackground": "#00000000",
+    "sideBar.background": "#00000000",
+    "sideBarSectionHeader.background": "#00000000",
+    "peekViewEditor.background": "#00000000",
+    "peekViewEditorGutter.background": "#00000000",
+    "peekViewTitle.background": "#00000000",
+    "peekViewResult.background": "#00000000",
+    "tab.activeBackground": "#00000000",
+    "tab.inactiveBackground": "#00000000",
+    "statusBar.debuggingBackground": "#00000000",
+    "statusBar.noFolderBackground": "#00000000",
+    "statusBarItem.activeBackground": "#00000000",
+    "activityBar.background": "#00000000"
+  },
+  "telemetry.telemetryLevel": "off",
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.panel.defaultLocation": "left",
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": true,
+  "zenMode.centerLayout": false,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1",
+    "CW_NEW_SESSION": "1"
+  },
+  "apc.imports": [
+    "file://${userHome}/Downloads/vscode-styles.css",
+    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js"
+  ],
+  "apc.sidebar.titlebar": {
+    "height": 36,
+    "fontSize": 12
+  },
+  "apc.font.family": "Dank Mono",
+  "apc.electron": {
+    "backgroundColor": "#00000000",
+    "vibrancy": "fullscreen-ui",
+    "frame": false,
+    "visualEffectState": "active",
+    "backgroundMaterial": "acrylic",
+    "titleBarStyle": "hiddenInset",
+    "transparent": true,
+    "trafficLightPosition": {
+      "x": 15,
+      "y": 14
+    }
+  },
+  "window.zoomLevel": 1,
+  "apc.stylesheet": {
+    /**
+     * Styles configuration
+     */
+    "body": "--al-transparency-percent: 25%; --al-pane-split-color: rgba(255,255,255,0.025); --al-tab-height: 38px; --al-tab-y-offset: 7px;"
+  },
+  "editor.minimap.enabled": false,
+  "editor.glyphMargin": false,
+  "editor.folding": true,
+  "editor.lineNumbers": "on",
+  "editor.guides.indentation": false,
+  "window.nativeFullScreen": true,
+  "window.titleBarStyle": "native",
+  "window.commandCenter": false,
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/src/**/index.ts": "${dirname}/${filename}"
+  },
+  "workbench.activityBar.location": "hidden",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "workbench.editor.tabActionCloseVisibility": false,
+  "animations.CursorAnimation": true,
+  "animations.CursorAnimationOptions": {
+    "Color": "#C45DFF",
+    "TrailLength": 4
+  },
+  "animations.Scrolling": "Fade",
+  "animations.Default-Duration": 250,
+  "animations.Tabs": "None",
+  "animations.Smooth-Mode": false,
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.Enabled": true,
+  "workbench.colorTheme": "PurpleSchool Theme",
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.files.color": "#90a4ae",
+  "material-icon-theme.folders.color": "#90a4ae",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.printWidth": 120
+}
