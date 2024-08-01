@@ -1,6 +1,6 @@
 # Preview
 
-<img width="1743" alt="Preview" src="preview.png">
+<img width="1743" alt="Preview" src="Preview.png">
 
 # Description
 
