@@ -72,7 +72,7 @@
     "CW_NEW_SESSION": "1"
   },
   "apc.imports": [
-    "https://raw.githubusercontent.com/men232/vscode-config/main/vscode-styles.css",
+    "file://${userHome}/Documents/vscode-styles.css",
     "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js"
   ],
   "apc.sidebar.titlebar": {

@@ -12,3 +12,8 @@ This is my customization to make vscode's visual interface minimalistic. It shou
 - [VSCode Animations](https://marketplace.visualstudio.com/items?itemName=BrandonKirbyson.vscode-animations)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 - [PurpleSchool Theme](https://marketplace.visualstudio.com/items?itemName=PurpleSchool.purpleschool-theme)
+
+# Installation
+
+1. Copy-paste content from [vscode-settings.json](vscode-settings.json) into user settings.
+2. Save [vscode-styles.css](vscode-styles.css) into {userHome}/Documents/vscode-styles.css or whatever you want, but do not forget to adjust a `apc.imports` path.
