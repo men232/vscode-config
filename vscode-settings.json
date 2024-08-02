@@ -6,7 +6,7 @@
     "source.organizeImports": "explicit"
   },
   "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "editor.fontSize": 12,
   "editor.lineHeight": 1.75,
   "editor.suggestFontSize": 0,
