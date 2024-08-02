@@ -1,12 +1,13 @@
 {
+  "files.autoSave": "afterDelay",
   "editor.accessibilitySupport": "off",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
-  "editor.fontFamily": "Dank Mono",
+  "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
   "editor.fontLigatures": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 12,
   "editor.lineHeight": 1.75,
   "editor.suggestFontSize": 0,
   "editor.suggestLineHeight": 28,
@@ -30,13 +31,10 @@
   "explorer.autoReveal": false,
   "files.insertFinalNewline": true,
   "security.workspace.trust.untrustedFiles": "newWindow",
-  "terminal.external.osxExec": "iTerm2.app",
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.fontFamily": "Dank Mono, Hack Nerd Font",
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
   "scm.diffDecorations": "none",
   "terminal.integrated.tabs.enabled": false,
-  "terminal.integrated.lineHeight": 1,
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 12,
   "terminal.integrated.tabs.location": "left",
   "workbench.colorCustomizations": {
     "terminalCursor.foreground": "#C45DFF",
@@ -63,7 +61,7 @@
   "workbench.tree.renderIndentGuides": "none",
   "workbench.layoutControl.enabled": false,
   "workbench.editor.enablePreview": false,
-  "workbench.panel.defaultLocation": "left",
+  "workbench.panel.defaultLocation": "bottom",
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": true,
   "zenMode.centerLayout": false,
@@ -72,17 +70,16 @@
     "CW_NEW_SESSION": "1"
   },
   "apc.imports": [
-    "file://${userHome}/Documents/vscode-styles.css",
+    "file://${userHome}/projects/vscode-config/vscode-styles.css",
     "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js"
   ],
   "apc.sidebar.titlebar": {
     "height": 36,
     "fontSize": 12
   },
-  "apc.font.family": "Dank Mono",
+  "apc.font.family": "CaskaydiaCove Nerd Font Mono",
   "apc.electron": {
     "backgroundColor": "#00000000",
-    "vibrancy": "fullscreen-ui",
     "frame": false,
     "visualEffectState": "active",
     "backgroundMaterial": "acrylic",
@@ -139,5 +136,6 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.printWidth": 120
+  "prettier.printWidth": 120,
+  "update.mode": "manual"
 }

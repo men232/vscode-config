@@ -126,9 +126,9 @@ body .monaco-workbench {
 }
 
 /* style(command-palette) add blur underlay */
-body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
+/* body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
   filter: blur(4px) brightness(70%) !important;
-}
+} */
 
 /* style(command-palette) remove blur underlay when color theme selection */
 body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view {
