@@ -1,7 +1,7 @@
 /** Overwrite and mixing original theme colors */
 body .monaco-workbench {
   --vscode-tab-inactiveBackground: rgba(255, 255, 255, 0.05);
-  --vscode-tab-activeBackground: var(--vscode-tab-activeBorderTop, rgba(255, 255, 255, 0.12));
+  --vscode-tab-activeBackground: var(--al-tab-activeBackground, var(--vscode-tab-activeBorderTop, rgba(255, 255, 255, 0.12)));
   --vscode-editor-background-proxy: color-mix(
     in srgb,
     var(--vscode-editor-background) calc(100% - var(--al-transparency-percent)),
@@ -126,9 +126,10 @@ body .monaco-workbench {
 }
 
 /* style(command-palette) add blur underlay */
-/* body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
-  filter: blur(4px) brightness(70%) !important;
-} */
+
+body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
+  filter: blur(var(--al-command-palette-blur-amount, 4px)) brightness(70%) !important;
+}
 
 /* style(command-palette) remove blur underlay when color theme selection */
 body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view {
@@ -216,7 +217,7 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .mo
   .tabs-container
   > .tab.active
   .monaco-icon-name-container {
-  color: var(--vscode-tab-activeForeground) !important;
+  color: var(--al-tab-activeColor, var(--vscode-tab-activeForeground)) !important;
 }
 
 .monaco-workbench
@@ -232,7 +233,31 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .mo
 
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label a,
 .monaco-workbench .part.editor > .content .editor-group-container > .title .title-label a {
-  font-size: 14px;
+  font-size: var(--al-tab-fontSize, 14px);
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label {
+  font-size: var(--al-tab-fontSize, 14px);
+  line-height: var(--al-tab-fontSize, 14px);
+  align-items: center;
+}
+
+.monaco-icon-label-container {
+  display: flex;
+  align-items: center;
+}
+
+.monaco-workbench
+  .part.editor
+  > .content
+  .editor-group-container
+  > .title
+  .tabs-container
+  > .tab
+  > .tab-label.tab-label-has-badge:after {
+  margin-top: 0 !important;
+  font-size: 0.65em;
+  line-height: 1;
 }
 
 /** fix(tabs) remove traffic offset when no sidebar */
