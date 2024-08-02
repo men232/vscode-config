@@ -20,7 +20,7 @@ body .monaco-workbench {
   display: none !important;
 }
 
-/** fix(search): file icon positions */
+/** fix(search) file icon positions */
 .filematch .monaco-icon-label:before,
 .custom-list-row.results .monaco-list-row .monaco-icon-label:before {
   background-position: 0 bottom !important;
@@ -31,12 +31,12 @@ body .monaco-workbench {
   padding: 5px 6px 0 6px !important;
 }
 
-/** fix(sidebar): title position */
+/** fix(sidebar) title position */
 .sidebar .title-label {
   padding: 0 !important;
 }
 
-/** style(sidebar): remove focus outline */
+/** style(sidebar) remove focus outline */
 .monaco-workbench .monaco-list:not(.element-focused):focus:before {
   outline: none !important;
 }
@@ -109,19 +109,30 @@ body .monaco-workbench {
   background-color: transparent !important;
 }
 
-/* Command Palette */
+/* style(command-palette) centring */
 .quick-input-widget {
   transform: translateY(-50%) !important;
   top: 50% !important;
   outline: 1px solid var(--vscode-focusBorder, var(--vscode-input-border, transparent));
 }
 
+.quick-input-list .monaco-list {
+  max-height: initial !important;
+  height: 35vh !important;
+}
+
 .monaco-grid-view {
   transition: filter 200ms ease;
 }
 
+/* style(command-palette) add blur underlay */
 body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
   filter: blur(4px) brightness(70%) !important;
+}
+
+/* style(command-palette) remove blur underlay when color theme selection */
+body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view {
+  filter: initial !important;
 }
 
 /** style(sidebar) title */
