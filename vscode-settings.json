@@ -98,7 +98,7 @@
     /**
      * Styles configuration
      */
-    "body": "--al-transparency-percent: 25%; --al-pane-split-color: rgba(255,255,255,0.025); --al-tab-height: 38px; --al-tab-y-offset: 7px;"
+     "body": "--al-transparency-percent: 25%; --al-pane-split-color: rgba(255,255,255,0.025); --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
   },
   "editor.minimap.enabled": false,
   "editor.glyphMargin": false,

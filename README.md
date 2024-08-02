@@ -4,7 +4,7 @@
 
 # Description
 
-This is my customization to make vscode's visual interface minimalistic. It should work fine with other themes but not guaranteed.
+This is my vscode config to make interface looks minimalistic. It should work fine with other themes but not guaranteed.
 
 # Requirements
 
@@ -32,4 +32,8 @@ You can adjust few things via css variables:
 // Most wanted feature 🤣
 --al-tab-height: 38px;
 --al-tab-y-offset: 7px;
+
+--al-tab-activeBackground: white;
+--al-tab-activeColor: black;
+--al-tab-fontSize: 14px;
 ```
