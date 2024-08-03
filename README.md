@@ -10,8 +10,9 @@ This is my vscode config to make interface looks minimalistic. It should work fi
 
 - [Apc Cusmoize UI++](https://marketplace.visualstudio.com/items?itemName=drcika.apc-extension)
 - [VSCode Animations](https://marketplace.visualstudio.com/items?itemName=BrandonKirbyson.vscode-animations)
-- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [Symbols Icons](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.symbols)
 - [PurpleSchool Theme](https://marketplace.visualstudio.com/items?itemName=PurpleSchool.purpleschool-theme)
+- [Iosevka Comfy Font](https://github.com/protesilaos/iosevka-comfy)
 
 # Installation
 
@@ -27,7 +28,11 @@ You can adjust few things via css variables:
 --al-transparency-percent: 25%;
 
 // Split line color
---al-pane-split-color: rgba(255,255,255,0.025);
+--al-pane-split-color: rgb(255, 255, 255);
+--al-pane-split-transparent: 2.5%;
+
+// Label name
+--al-label-name-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
 // Most wanted feature 🤣
 --al-tab-height: 38px;
@@ -36,4 +41,5 @@ You can adjust few things via css variables:
 --al-tab-activeBackground: white;
 --al-tab-activeColor: black;
 --al-tab-fontSize: 14px;
+--al-tab-borderRadius: 4px;
 ```

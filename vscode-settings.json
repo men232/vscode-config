@@ -4,7 +4,7 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
-  "editor.fontFamily": "Dank Mono",
+  "editor.fontFamily": "Iosevka Comfy",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
   "editor.lineHeight": 1.75,
@@ -17,27 +17,38 @@
   "editor.overviewRulerBorder": false,
   "editor.scrollbar.verticalScrollbarSize": 4,
   "editor.scrollbar.horizontalScrollbarSize": 4,
-  "breadcrumbs.enabled": false,
-  "explorer.confirmDragAndDrop": false,
   "editor.cursorBlinking": "solid",
-  "extensions.ignoreRecommendations": true,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.renderLineHighlight": "all",
   "editor.renderControlCharacters": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": true,
   "editor.rulers": [80, 100, 120],
+  "editor.minimap.enabled": false,
+  "editor.glyphMargin": false,
+  "editor.folding": true,
+  "editor.lineNumbers": "on",
+  "editor.guides.indentation": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "breadcrumbs.enabled": false,
+  "explorer.confirmDragAndDrop": false,
   "explorer.autoReveal": false,
+  "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "terminal.external.osxExec": "iTerm2.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.fontFamily": "Dank Mono, Hack Nerd Font",
+  "terminal.integrated.fontFamily": "Iosevka Comfy, Hack Nerd Font",
   "scm.diffDecorations": "none",
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.lineHeight": 1,
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1",
+    "CW_NEW_SESSION": "1"
+  },
+  "telemetry.telemetryLevel": "off",
   "workbench.colorCustomizations": {
     "terminalCursor.foreground": "#C45DFF",
     "terminal.background": "#00000000",
@@ -55,7 +66,6 @@
     "statusBarItem.activeBackground": "#00000000",
     "activityBar.background": "#00000000"
   },
-  "telemetry.telemetryLevel": "off",
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editor.tabSizing": "shrink",
   "workbench.sideBar.location": "right",
@@ -64,13 +74,44 @@
   "workbench.layoutControl.enabled": false,
   "workbench.editor.enablePreview": false,
   "workbench.panel.defaultLocation": "left",
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/src/**/index.ts": "${dirname}/${filename}"
+  },
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.tabActionCloseVisibility": false,
+  "workbench.colorTheme": "PurpleSchool Theme",
+  "workbench.iconTheme": "symbols",
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": true,
   "zenMode.centerLayout": false,
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1",
-    "CW_NEW_SESSION": "1"
+  "window.zoomLevel": 1,
+  "window.nativeFullScreen": true,
+  "window.titleBarStyle": "native",
+  "window.commandCenter": false,
+  "animations.CursorAnimation": true,
+  "animations.CursorAnimationOptions": {
+    "Color": "#C45DFF",
+    "TrailLength": 4
   },
+  "animations.Scrolling": "Fade",
+  "animations.Default-Duration": 250,
+  "animations.Tabs": "None",
+  "animations.Smooth-Mode": false,
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.Enabled": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.printWidth": 120,
+  "update.mode": "manual",
+  "symbols.hidesExplorerArrows": false,
   "apc.imports": [
     "file://${userHome}/Documents/vscode-styles.css",
     "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js"
@@ -79,7 +120,7 @@
     "height": 36,
     "fontSize": 12
   },
-  "apc.font.family": "Dank Mono",
+  "apc.font.family": "Iosevka Comfy Wide",
   "apc.electron": {
     "backgroundColor": "#00000000",
     "vibrancy": "fullscreen-ui",
@@ -93,51 +134,10 @@
       "y": 14
     }
   },
-  "window.zoomLevel": 1,
   "apc.stylesheet": {
     /**
      * Styles configuration
      */
-     "body": "--al-transparency-percent: 25%; --al-pane-split-color: rgba(255,255,255,0.025); --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
-  },
-  "editor.minimap.enabled": false,
-  "editor.glyphMargin": false,
-  "editor.folding": true,
-  "editor.lineNumbers": "on",
-  "editor.guides.indentation": false,
-  "window.nativeFullScreen": true,
-  "window.titleBarStyle": "native",
-  "window.commandCenter": false,
-  "workbench.editor.customLabels.enabled": true,
-  "workbench.editor.customLabels.patterns": {
-    "**/src/**/index.ts": "${dirname}/${filename}"
-  },
-  "workbench.activityBar.location": "hidden",
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "workbench.editor.tabActionCloseVisibility": false,
-  "animations.CursorAnimation": true,
-  "animations.CursorAnimationOptions": {
-    "Color": "#C45DFF",
-    "TrailLength": 4
-  },
-  "animations.Scrolling": "Fade",
-  "animations.Default-Duration": 250,
-  "animations.Tabs": "None",
-  "animations.Smooth-Mode": false,
-  "animations.Install-Method": "Apc Customize UI++",
-  "animations.Enabled": true,
-  "workbench.colorTheme": "PurpleSchool Theme",
-  "workbench.iconTheme": "material-icon-theme",
-  "material-icon-theme.files.color": "#90a4ae",
-  "material-icon-theme.folders.color": "#90a4ae",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.printWidth": 120
+    "body .monaco-workbench": "--al-transparency-percent: 25%; --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
+  }
 }

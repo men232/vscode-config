@@ -1,7 +1,16 @@
 /** Overwrite and mixing original theme colors */
+.monaco-workbench {
+  --al-pane-split-color: rgb(
+    from var(--vscode-inputOption-activeForeground) r g b / var(--al-pane-split-transparent, 2.5%)
+  );
+}
+
 body .monaco-workbench {
   --vscode-tab-inactiveBackground: rgba(255, 255, 255, 0.05);
-  --vscode-tab-activeBackground: var(--al-tab-activeBackground, var(--vscode-tab-activeBorderTop, rgba(255, 255, 255, 0.12)));
+  --vscode-tab-activeBackground: var(
+    --al-tab-activeBackground,
+    var(--vscode-tab-activeBorderTop, rgba(255, 255, 255, 0.12))
+  );
   --vscode-editor-background-proxy: color-mix(
     in srgb,
     var(--vscode-editor-background) calc(100% - var(--al-transparency-percent)),
@@ -131,14 +140,14 @@ body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
 }
 
 /* style(command-palette) remove blur underlay when color theme selection */
-body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view {
+body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view,
+body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .monaco-grid-view {
   filter: initial !important;
 }
 
 /** style(sidebar) title */
 .monaco-workbench .part.sidebar > .title > .title-label h2 {
-  color: white !important;
-  font-weight: bold;
+  color: rgb(from var(--vscode-inputOption-activeForeground) r g b / 100%) !important;
   text-transform: uppercase;
 }
 
@@ -171,7 +180,7 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .mo
 
 /** style(tabs) */
 .monaco-icon-label > .monaco-icon-label-container > .monaco-icon-name-container > .label-name {
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  text-shadow: var(--al-label-name-shadow, 0px 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .monaco-workbench
@@ -197,7 +206,7 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .mo
 }
 
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab {
-  border-radius: 4px;
+  border-radius: var(--al-tab-borderRadius, 4px);
   overflow: hidden;
   border-right: none !important;
   --tab-border-bottom-color: transparent !important;
@@ -237,13 +246,13 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .mo
 
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label {
   font-size: var(--al-tab-fontSize, 14px);
-  line-height: var(--al-tab-fontSize, 14px);
   align-items: center;
 }
 
 .monaco-icon-label-container {
   display: flex;
   align-items: center;
+  overflow: visible !important;
 }
 
 .monaco-workbench
