@@ -4,7 +4,7 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
-  "editor.fontFamily": "Iosevka Comfy",
+  "editor.fontFamily": "Dank Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
   "editor.lineHeight": 1.75,
@@ -38,7 +38,7 @@
   "security.workspace.trust.untrustedFiles": "newWindow",
   "terminal.external.osxExec": "iTerm2.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.fontFamily": "Iosevka Comfy, Hack Nerd Font",
+  "terminal.integrated.fontFamily": "Dank Mono, Hack Nerd Font",
   "scm.diffDecorations": "none",
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.lineHeight": 1,
@@ -120,7 +120,7 @@
     "height": 36,
     "fontSize": 12
   },
-  "apc.font.family": "Iosevka Comfy Wide",
+  "apc.font.family": "Dank Mono",
   "apc.electron": {
     "backgroundColor": "#00000000",
     "vibrancy": "fullscreen-ui",

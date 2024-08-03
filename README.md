@@ -12,7 +12,7 @@ This is my vscode config to make interface looks minimalistic. It should work fi
 - [VSCode Animations](https://marketplace.visualstudio.com/items?itemName=BrandonKirbyson.vscode-animations)
 - [Symbols Icons](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.symbols)
 - [PurpleSchool Theme](https://marketplace.visualstudio.com/items?itemName=PurpleSchool.purpleschool-theme)
-- [Iosevka Comfy Font](https://github.com/protesilaos/iosevka-comfy)
+- [Dank Mono Font](https://philpl.gumroad.com/l/dank-mono)
 
 # Installation
 
