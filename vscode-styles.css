@@ -6,6 +6,7 @@
 }
 
 body .monaco-workbench {
+  --vscode-terminal-border: var(--al-pane-split-color);
   --vscode-tab-inactiveBackground: rgba(255, 255, 255, 0.05);
   --vscode-tab-activeBackground: var(
     --al-tab-activeBackground,
