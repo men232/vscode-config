@@ -1,0 +1,27 @@
+/** style(sidebar) add rocket icon :) */
+.monaco-pane-view .pane > .pane-header .title[aria-label^="Explorer Section:"]:before {
+  display: inline-block;
+  margin-right: 6px;
+  content: "🚀";
+}
+
+/** style(sidebar) adjust explorer title font size */
+.monaco-pane-view .pane > .pane-header .title[aria-label^="Explorer Section:"] {
+  line-height: var(--titlebar-height);
+  font-size: var(--titlebar-font-size);
+  font-weight: 400;
+}
+
+.monaco-pane-view .pane>.pane-header {
+  height: var(--titlebar-height);
+}
+
+/** style(sidebar) hide explorer actions buttons (cursor editor) */
+div:has(> .sidebar2-compositeComponent) > :first-child {
+  display: none;
+}
+
+/** fix(tags) add traffic offset (cursor editor) */
+.inline-tabs-placeholder {
+  width: calc(var(--traffic-X) + 68px);
+}
