@@ -276,9 +276,24 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .mona
   font-size: var(--al-tab-fontSize, 14px);
 }
 
+/** fix(tabs) remove title mask which use color to fade */
+.monaco-workbench
+  .part.editor
+  .editor-group-container
+  > .title
+  .tabs-container
+  > .tab
+  > .tab-label
+  > .monaco-icon-label-container::after {
+  display: none;
+}
+
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label {
   font-size: var(--al-tab-fontSize, 14px);
   align-items: center;
+  /** add mask for title */
+  mask-image: linear-gradient(to right, black calc(100% - 5px), transparent 100%);
+  mask-repeat: no-repeat;
 }
 
 /** fix(tabs) icon/title align and disable title truncate */
