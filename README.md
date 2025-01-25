@@ -24,17 +24,17 @@ This is my vscode config to make interface looks minimalistic. It should work fi
 You can adjust few things via css variables:
 
 ```
-// Window transparency amount
+// Global transparency amount
 --al-transparency-percent: 25%;
 
-// Split line color
+// Editor split line color
 --al-pane-split-color: rgb(255, 255, 255);
 --al-pane-split-transparent: 2.5%;
 
 // Label name
 --al-label-name-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
-// Most wanted feature 🤣
+// Tabs adjusments (Most wanted feature) 🤣
 --al-tab-height: 38px;
 --al-tab-y-offset: 7px;
 
@@ -42,4 +42,7 @@ You can adjust few things via css variables:
 --al-tab-activeColor: black;
 --al-tab-fontSize: 14px;
 --al-tab-borderRadius: 4px;
+
+// Custom project icon (Explorer)
+--al-project-icon: '🤯'; // by default 🚀
 ```
