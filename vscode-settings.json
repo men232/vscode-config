@@ -4,8 +4,8 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
-  "editor.fontFamily": "Dank Mono",
-  "editor.fontLigatures": true,
+  "editor.fontFamily": "Maple Mono",
+  "editor.fontLigatures": "'calt', 'zero', 'ss03'",
   "editor.fontSize": 16,
   "editor.lineHeight": 1.75,
   "editor.suggestFontSize": 0,
@@ -18,12 +18,17 @@
   "editor.scrollbar.verticalScrollbarSize": 4,
   "editor.scrollbar.horizontalScrollbarSize": 4,
   "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "block",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.renderLineHighlight": "all",
   "editor.renderControlCharacters": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": true,
-  "editor.rulers": [80, 100, 120],
+  "editor.rulers": [
+    80,
+    100,
+    120
+  ],
   "editor.minimap.enabled": false,
   "editor.glyphMargin": false,
   "editor.folding": true,
@@ -32,13 +37,14 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "breadcrumbs.enabled": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
   "explorer.autoReveal": false,
   "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "terminal.external.osxExec": "iTerm2.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.fontFamily": "Dank Mono, Hack Nerd Font",
+  "terminal.integrated.fontFamily": "Maple Mono, Hack Nerd Font",
   "scm.diffDecorations": "none",
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.lineHeight": 1,
@@ -50,8 +56,12 @@
   },
   "telemetry.telemetryLevel": "off",
   "workbench.colorCustomizations": {
-    "terminalCursor.foreground": "#C45DFF",
+    "[PurpleSchool Theme]": {
+      "terminalCursor.foreground": "#C45DFF",
+      "editor.background": "#060410"
+    },
     "terminal.background": "#00000000",
+    "terminalOverviewRuler.border": "#ffffff15",
     "editorGroupHeader.tabsBackground": "#00000000",
     "sideBar.background": "#00000000",
     "sideBarSectionHeader.background": "#00000000",
@@ -89,17 +99,6 @@
   "window.nativeFullScreen": true,
   "window.titleBarStyle": "native",
   "window.commandCenter": false,
-  "animations.CursorAnimation": true,
-  "animations.CursorAnimationOptions": {
-    "Color": "#C45DFF",
-    "TrailLength": 4
-  },
-  "animations.Scrolling": "Fade",
-  "animations.Default-Duration": 250,
-  "animations.Tabs": "None",
-  "animations.Smooth-Mode": false,
-  "animations.Install-Method": "Apc Customize UI++",
-  "animations.Enabled": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -111,33 +110,25 @@
   },
   "prettier.printWidth": 120,
   "update.mode": "manual",
-  "symbols.hidesExplorerArrows": false,
-  "apc.imports": [
-    "file://${userHome}/Documents/vscode-styles.css",
-    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js"
-  ],
-  "apc.sidebar.titlebar": {
-    "height": 36,
-    "fontSize": 12
-  },
-  "apc.font.family": "Dank Mono",
-  "apc.electron": {
-    "backgroundColor": "#00000000",
-    "vibrancy": "fullscreen-ui",
+  "symbols.hidesExplorerArrows": true,
+  "custom-ui-style.reloadWithoutPrompting": true,
+  "custom-ui-style.electron": {
     "frame": false,
-    "visualEffectState": "active",
-    "backgroundMaterial": "acrylic",
     "titleBarStyle": "hiddenInset",
-    "transparent": true,
     "trafficLightPosition": {
       "x": 15,
       "y": 14
     }
   },
-  "apc.stylesheet": {
+  "custom-ui-style.font.sansSerif": "Maple Mono",
+  "custom-ui-style.stylesheet": {
     /**
      * Styles configuration
      */
-    "body .monaco-workbench": "--al-transparency-percent: 25%; --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
-  }
+    "body .monaco-workbench": "--al-transparency-percent: 0%; --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
+  },
+  "custom-ui-style.external.loadStrategy": "refetch",
+  "custom-ui-style.external.imports": [
+    "file://${userHome}/Documents/vscode-config/vscode-styles.css"
+  ]
 }

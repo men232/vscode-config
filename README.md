@@ -8,16 +8,15 @@ This is my vscode config to make interface looks minimalistic. It should work fi
 
 # Requirements
 
-- [Apc Cusmoize UI++](https://marketplace.visualstudio.com/items?itemName=drcika.apc-extension)
-- [VSCode Animations](https://marketplace.visualstudio.com/items?itemName=BrandonKirbyson.vscode-animations)
+- [Custom UI Style+](https://marketplace.visualstudio.com/items?itemName=subframe7536.custom-ui-style)
 - [Symbols Icons](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.symbols)
 - [PurpleSchool Theme](https://marketplace.visualstudio.com/items?itemName=PurpleSchool.purpleschool-theme)
-- [Dank Mono Font](https://philpl.gumroad.com/l/dank-mono)
+- [Maple Mono](https://github.com/subframe7536/maple-font)
 
 # Installation
 
 1. Copy-paste content from [vscode-settings.json](vscode-settings.json) into user settings.
-2. Save [vscode-styles.css](vscode-styles.css) into {userHome}/Documents/vscode-styles.css or whatever you want, but do not forget to adjust a `apc.imports` path.
+2. Save [vscode-styles.css](vscode-styles.css) into {userHome}/Documents/vscode-styles.css or whatever you want, but do not forget to adjust a `custom-ui-style.external.imports` path.
 
 # Configurations
 
@@ -34,7 +33,7 @@ You can adjust few things via css variables:
 // Label name
 --al-label-name-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
-// Tabs adjusments (Most wanted feature) 🤣
+// Tabs adjustments (Most wanted feature) 🤣
 --al-tab-height: 38px;
 --al-tab-y-offset: 7px;
 
