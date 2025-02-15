@@ -125,6 +125,16 @@ body .monaco-workbench {
   background-color: transparent !important;
 }
 
+/** style(find-widget) */
+.editor-widget.find-widget {
+  border-radius: 4px;
+}
+
+/** style(command-palette-input) remove right padding  */
+.monaco-action-bar.quick-input-inline-action-bar {
+  display: none;
+}
+
 /* style(command-palette) centring */
 .quick-input-widget {
   transform: translateY(-50%) !important;
@@ -336,8 +346,14 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .mona
 }
 
 /** fix(editor) add small padding to make line numbers breath */
-.monaco-workbench .part.editor > .content .editor-group-container > .editor-container > .editor-instance {
-  padding-left: 4px;
+.monaco-workbench
+  .part.editor
+  > .content
+  .editor-group-container
+  > .editor-container
+  > .editor-instance
+  .margin-view-overlays {
+  margin-left: 4px;
 }
 
 /** styles(lauch) custom icon */
