@@ -5,6 +5,11 @@
   );
 }
 
+/** Remove background color from workbench to reach blur background */
+body > .monaco-workbench {
+  background-color: initial;
+}
+
 /** Register custom css variables and color shade alignment */
 body .monaco-workbench {
   --vscode-terminal-border: var(--al-pane-split-color);
