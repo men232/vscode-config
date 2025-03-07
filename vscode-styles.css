@@ -112,6 +112,16 @@ body .monaco-workbench {
   --vscode-editorGutter-background: rgba(0, 0, 0, 0);
 }
 
+/** fix(window-drag) */
+.monaco-workbench .part.sidebar > .title,
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container {
+  app-region: drag;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab {
+  app-region: no-drag;
+}
+
 /** drop background overlays */
 .editor-container,
 .monaco-workbench .part > .content,
