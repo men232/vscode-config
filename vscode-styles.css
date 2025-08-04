@@ -348,7 +348,7 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .mona
   > .content
   .split-view-container
   > .split-view-view:first-child
-  .editor-group-container
+  .editor-group-container[data-keybinding-context="3"]
   > .tabs {
   padding-left: var(--traffic-offset);
   --tabs-border-left-offset: calc(var(--traffic-offset) * -1);
