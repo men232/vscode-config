@@ -130,8 +130,8 @@ body .monaco-workbench {
 
 /** style(cursor) color */
 .monaco-editor .monaco-editor-background .cursors-layer > .cursor {
-  background-color: var(--vscode-terminalCursor-foreground);
-  border-color: var(--vscode-terminalCursor-foreground);
+  background-color: var(--vscode-terminalCursor-foreground, var(--vscode-editorCursor-foreground));
+  border-color: var(--vscode-terminalCursor-foreground, var(--vscode-editorCursor-foreground));
 }
 
 /** fix(quick-search) makes location text right aligned */
@@ -255,6 +255,11 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .mona
   display: inline-block;
   margin-right: 6px;
   content: var(--al-project-icon, "🚀");
+}
+
+/** style(sidebar) remove title border bottom */
+.monaco-workbench .part.sidebar > .title {
+  border-bottom: none !important;
 }
 
 /** style(editor) apply general background color */
