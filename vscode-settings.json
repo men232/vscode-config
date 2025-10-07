@@ -24,17 +24,20 @@
   "editor.renderControlCharacters": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": true,
+  // Show vertical lines after a certain number monospace characters
   "editor.rulers": [
     80,
     100,
     120
   ],
   "editor.minimap.enabled": false,
+  // Hide line number debug pointers
   "editor.glyphMargin": false,
   "editor.folding": true,
   "editor.lineNumbers": "on",
   "editor.guides.indentation": false,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.ambiguousCharacters": true,
+  // Hide breadcrumbs below file tabs
   "breadcrumbs.enabled": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
@@ -49,17 +52,17 @@
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.lineHeight": 1,
   "terminal.integrated.fontSize": 14,
+  // Extend terminal scroll buffer
+  "terminal.integrated.scrollback": 5000,
   "terminal.integrated.tabs.location": "left",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1",
     "CW_NEW_SESSION": "1"
   },
+  // Disable telemetry
   "telemetry.telemetryLevel": "off",
   "workbench.colorCustomizations": {
-    "[PurpleSchool Theme]": {
-      "terminalCursor.foreground": "#C45DFF",
-      "editor.background": "#060410"
-    },
+    // Disable backgrounds for most of ui components
     "terminal.background": "#00000000",
     "terminalOverviewRuler.border": "#ffffff15",
     "editorGroupHeader.tabsBackground": "#00000000",
@@ -74,21 +77,30 @@
     "statusBar.debuggingBackground": "#00000000",
     "statusBar.noFolderBackground": "#00000000",
     "statusBarItem.activeBackground": "#00000000",
-    "activityBar.background": "#00000000"
+    "activityBar.background": "#00000000",
+    // Custom theme configs
+    "[PurpleSchool Theme]": {
+      "terminalCursor.foreground": "#C45DFF",
+      "editor.background": "#060410"
+    }
   },
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editor.tabSizing": "shrink",
+  // Sidebar explorer location
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.renderIndentGuides": "none",
   "workbench.layoutControl.enabled": false,
   "workbench.editor.enablePreview": false,
+  // Terminal default location
   "workbench.panel.defaultLocation": "left",
   "workbench.editor.customLabels.enabled": true,
   "workbench.editor.customLabels.patterns": {
     "**/src/**/index.ts": "${dirname}/${filename}"
   },
+  // Hide ugly large buttons
   "workbench.activityBar.location": "hidden",
+  // Hide tabs close button
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.colorTheme": "PurpleSchool Theme",
   "workbench.iconTheme": "symbols",
@@ -99,18 +111,22 @@
   "window.nativeFullScreen": true,
   "window.titleBarStyle": "native",
   "window.commandCenter": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "prettier.printWidth": 120,
   "update.mode": "manual",
   "symbols.hidesExplorerArrows": true,
+  "symbols.files.associations": {
+    "*.service.ts": "brackets-blue",
+    "*.service.js": "brackets-blue",
+    "*.worker.ts": "brackets-red",
+    "*.worker.js": "brackets-red"
+  },
+  "symbols.folders.associations": {
+    "docs": "folder-green",
+    "files": "folder",
+    "methods": "folder-target",
+    "utils": "folder-core",
+    "models": "folder-mongo"
+  },
   "custom-ui-style.reloadWithoutPrompting": true,
   "custom-ui-style.electron": {
     "frame": false,
@@ -129,6 +145,12 @@
   },
   "custom-ui-style.external.loadStrategy": "refetch",
   "custom-ui-style.external.imports": [
-    "file://${userHome}/Documents/vscode-config/vscode-styles.css"
+    "file://${userHome}/Documents/vscode-config/vscode-styles.css",
+    "file://${userHome}/Documents/vscode-config/features/tabs.css",
+    "file://${userHome}/Documents/vscode-config/features/terminal.css",
+    "file://${userHome}/Documents/vscode-config/features/explorer.css",
+    "file://${userHome}/Documents/vscode-config/features/command-palette.css",
+    "file://${userHome}/Documents/vscode-config/features/hide-editor-buttons.css",
+    "file://${userHome}/Documents/vscode-config/features/focus-glow.css"
   ]
 }

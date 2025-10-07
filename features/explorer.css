@@ -1,0 +1,17 @@
+/** style(sidebar) title */
+.monaco-workbench .part.sidebar > .title > .title-label h2 {
+  color: rgb(from var(--vscode-inputOption-activeForeground) r g b / 100%) !important;
+  text-transform: uppercase;
+}
+
+/** style(sidebar) add rocket icon :) */
+.monaco-workbench .part.sidebar > .title > .title-label h2::before {
+  display: inline-block;
+  margin-right: 6px;
+  content: var(--al-project-icon, "🚀");
+}
+
+/** fix(sidebar) title position */
+.sidebar .title-label {
+  padding: 0 !important;
+}

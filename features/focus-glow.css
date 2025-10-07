@@ -1,0 +1,75 @@
+/** style(editor) highlight focused */
+@property --al-highlight-progress {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: false;
+}
+
+@property --al-pulse-progress {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes focusFlash {
+  0% {
+    --al-highlight-progress: 0;
+    --al-pulse-progress: 0;
+  }
+  25% {
+    --al-highlight-progress: 0.8;
+    --al-pulse-progress: 1;
+  }
+  50% {
+    --al-highlight-progress: 1;
+    --al-pulse-progress: 0.3;
+  }
+  75% {
+    --al-highlight-progress: 1;
+    --al-pulse-progress: 0.1;
+  }
+  100% {
+    --al-highlight-progress: 1;
+    --al-pulse-progress: 0;
+  }
+}
+
+.monaco-editor.focused::after,
+.monaco-workbench .monaco-list:not(.element-focused):focus::after,
+.monaco-workbench .monaco-list:focus::after,
+.terminal.xterm.focus::after {
+  --base-color: var(--vscode-inlineEdit-gutterIndicator-primaryBorder);
+
+  /* Multi-layered shadows */
+  --shadow-inner: color-mix(in srgb, var(--base-color) calc(40% + var(--al-pulse-progress) * 40%), transparent);
+  --shadow-outer: color-mix(in srgb, var(--base-color) calc(25% + var(--al-pulse-progress) * 15%), transparent);
+  --shadow-glow: color-mix(in srgb, var(--base-color) calc(15% + var(--al-pulse-progress) * 10%), transparent);
+
+  /* Dynamic border */
+  --border-glow: color-mix(in srgb, var(--base-color) calc(var(--al-pulse-progress) * 60%), transparent);
+
+  /* Improved transforms */
+  border-radius: calc((1 - var(--al-highlight-progress)) * 1rem);
+  transform: scale(calc(1 - ((1 - var(--al-highlight-progress)) * 0.03))) translateZ(0);
+
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+
+  animation: focusFlash 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  box-shadow: 0 0 0 1px var(--border-glow), 0 0 4px var(--shadow-glow), inset 0 0 20px var(--shadow-inner),
+    inset 0 0 12px var(--shadow-inner);
+
+  transition: all 0.15s ease-out;
+}
+
+/** style(sidebar) remove focus outline */
+.monaco-workbench .monaco-list:not(.element-focused):focus:before {
+  outline: none !important;
+}

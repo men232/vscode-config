@@ -17,9 +17,24 @@ Ensure you have the following installed:
 
 # 📥 Installation
 
-1. Copy the contents of [vscode-settings.json](vscode-settings.json) into your VS Code user settings..
-2. Save [vscode-styles.css](vscode-styles.css) to `{userHome}/Documents/vscode-styles.css` (or any other location).
-3. Make sure to update the `custom-ui-style.external.imports` path in your settings accordingly.
+1. Clone repo
+
+```bash
+cd ~/Documents
+git clone https://github.com/men232/vscode-config.git
+```
+
+2. Copy the contents of [vscode-settings.json](vscode-settings.json) into your VS Code user settings.
+
+```bash
+cd ~/Library/Application\ Support/Code/User/
+
+# Backup your config
+cp ./settings.json ./settings.json.bk
+
+# Overwrite with repo config
+cp ~/Documents/vscode-config/vscode-settings.json ./settings.json
+```
 
 # 🎨 Customization
 
@@ -33,7 +48,7 @@ You can tweak various UI elements using the following CSS variables:
 --al-pane-split-color: rgb(255, 255, 255);
 --al-pane-split-transparent: 2.5%;
 
-/* Label name */
+/* Tabs title shadow */
 --al-label-name-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
 /* Tabs adjustments (Highly requested feature! 😆) */
@@ -49,9 +64,13 @@ You can tweak various UI elements using the following CSS variables:
 --al-project-icon: '🤯'; /* Default: 🚀 */
 ```
 
+# ⚙️ Disabling Specific UI Effects
+
+Check the `custom-ui-style.external.imports`. You can comment out the CSS file related to a specific feature in your JSON configuration file.
+For example, to disable the focus glow effect, simply comment out the import for `focus-glow.css`
+
 # ⚠️ Known Issues
 
 - Horizontal scrolling extends beyond the container, making it appear smaller than its actual size.
-- Window dragging issue – the window becomes unmovable using the mouse.
 
 Let me know if you want to add possible workarounds or solutions! 🚀

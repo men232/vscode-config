@@ -1,0 +1,14 @@
+/** style(left-sidebar) hide other tabs when terminal selected */
+.panel.left:has(.terminal-outer-container) .composite.title {
+  visibility: hidden;
+  height: 20px;
+}
+
+.fullscreen .panel.left:has(.terminal-outer-container) .composite.title {
+  display: none;
+}
+
+/** style(terminal) compact padding */
+.monaco-workbench .terminal-wrapper .xterm {
+  padding-left: 10px;
+}

@@ -13,32 +13,11 @@ body > .monaco-workbench {
 /** Register custom css variables and color shade alignment */
 body .monaco-workbench {
   --vscode-terminal-border: var(--al-pane-split-color);
-  --vscode-tab-inactiveBackground: rgba(255, 255, 255, 0.05);
-  --vscode-tab-activeBackground: var(
-    --al-tab-activeBackground,
-    var(--vscode-tab-activeBorderTop, rgba(255, 255, 255, 0.12))
-  );
   --vscode-editor-background-proxy: color-mix(
     in srgb,
     var(--vscode-editor-background) calc(100% - var(--al-transparency-percent)),
     transparent
   ) !important;
-  --titlebar-height: var(--al-tab-height);
-}
-
-/** style(editor) hide title actions */
-.monaco-workbench .part.editor > .content .editor-group-container > .title .editor-actions {
-  display: none !important;
-}
-
-/** style(sidebar) hide explorer actions */
-.monaco-workbench .part > .composite.title > .title-actions {
-  display: none !important;
-}
-
-/** style(command-palette-input) hide right padding  */
-.monaco-action-bar.quick-input-inline-action-bar {
-  display: none;
 }
 
 /** fix(search) file icon positions */
@@ -47,112 +26,10 @@ body .monaco-workbench {
   background-position: 0 bottom !important;
 }
 
-/** fix(sidebar) title position */
-.sidebar .title-label {
-  padding: 0 !important;
-}
-
-/** style(editor) highlight focused */
-@property --al-highlight-progress {
-  syntax: "<number>";
-  initial-value: 1;
-  inherits: false;
-}
-
-@property --al-pulse-progress {
-  syntax: "<number>";
-  initial-value: 0;
-  inherits: false;
-}
-
-@keyframes focusFlash {
-  0% {
-    --al-highlight-progress: 0;
-    --al-pulse-progress: 0;
-  }
-  25% {
-    --al-highlight-progress: 0.8;
-    --al-pulse-progress: 1;
-  }
-  50% {
-    --al-highlight-progress: 1;
-    --al-pulse-progress: 0.3;
-  }
-  75% {
-    --al-highlight-progress: 1;
-    --al-pulse-progress: 0.1;
-  }
-  100% {
-    --al-highlight-progress: 1;
-    --al-pulse-progress: 0;
-  }
-}
-
-.monaco-editor.focused::after,
-.monaco-workbench .monaco-list:not(.element-focused):focus::after,
-.monaco-workbench .monaco-list:focus::after,
-.terminal.xterm.focus::after {
-  --base-color: var(--vscode-inlineEdit-gutterIndicator-primaryBorder);
-
-  /* Multi-layered shadows */
-  --shadow-inner: color-mix(in srgb, var(--base-color) calc(40% + var(--al-pulse-progress) * 40%), transparent);
-  --shadow-outer: color-mix(in srgb, var(--base-color) calc(25% + var(--al-pulse-progress) * 15%), transparent);
-  --shadow-glow: color-mix(in srgb, var(--base-color) calc(15% + var(--al-pulse-progress) * 10%), transparent);
-
-  /* Dynamic border */
-  --border-glow: color-mix(in srgb, var(--base-color) calc(var(--al-pulse-progress) * 60%), transparent);
-
-  /* Improved transforms */
-  border-radius: calc((1 - var(--al-highlight-progress)) * 1rem);
-  transform: scale(calc(1 - ((1 - var(--al-highlight-progress)) * 0.03))) translateZ(0);
-
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 10;
-
-  animation: focusFlash 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  box-shadow: 0 0 0 1px var(--border-glow), 0 0 4px var(--shadow-glow), inset 0 0 20px var(--shadow-inner),
-    inset 0 0 12px var(--shadow-inner);
-
-  transition: all 0.15s ease-out;
-}
-
-/** style(sidebar) remove focus outline */
-.monaco-workbench .monaco-list:not(.element-focused):focus:before {
-  outline: none !important;
-}
-
 /** style(cursor) color */
 .monaco-editor .monaco-editor-background .cursors-layer > .cursor {
   background-color: var(--vscode-terminalCursor-foreground, var(--vscode-editorCursor-foreground));
   border-color: var(--vscode-terminalCursor-foreground, var(--vscode-editorCursor-foreground));
-}
-
-/** fix(quick-search) makes location text right aligned */
-.quick-input-list-row div {
-  display: flex !important;
-  align-items: center !important;
-}
-
-/** style(left-sidebar) hide other tabs when terminal selected */
-.panel.left:has(.terminal-outer-container) .composite.title {
-  visibility: hidden;
-  height: 20px;
-}
-
-.fullscreen .panel.left:has(.terminal-outer-container) .composite.title {
-  display: none;
-}
-
-/** style(terminal) compact padding */
-.monaco-workbench .terminal-wrapper .xterm {
-  padding-left: 10px;
 }
 
 /** fix(terminal) extra padding to avoid overlap with traffic light */
@@ -217,46 +94,6 @@ body .monaco-workbench {
   border-radius: 4px;
 }
 
-/* style(command-palette) centring */
-.quick-input-widget {
-  transform: translateY(-50%) !important;
-  top: 50% !important;
-  outline: 1px solid var(--vscode-focusBorder, var(--vscode-input-border, transparent));
-}
-
-.quick-input-list .monaco-list {
-  max-height: initial !important;
-  height: 35vh !important;
-}
-
-.monaco-grid-view {
-  transition: filter 200ms ease;
-}
-
-/** style(command-palette) add blur underlay */
-body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
-  filter: blur(var(--al-command-palette-blur-amount, 4px)) brightness(70%) !important;
-}
-
-/** style(command-palette) remove blur underlay when color theme selection */
-body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view,
-body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .monaco-grid-view {
-  filter: initial !important;
-}
-
-/** style(sidebar) title */
-.monaco-workbench .part.sidebar > .title > .title-label h2 {
-  color: rgb(from var(--vscode-inputOption-activeForeground) r g b / 100%) !important;
-  text-transform: uppercase;
-}
-
-/** style(sidebar) add rocket icon :) */
-.monaco-workbench .part.sidebar > .title > .title-label h2::before {
-  display: inline-block;
-  margin-right: 6px;
-  content: var(--al-project-icon, "🚀");
-}
-
 /** style(sidebar) remove title border bottom */
 .monaco-workbench .part.sidebar > .title {
   border-bottom: none !important;
@@ -295,66 +132,6 @@ div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.left.first
   padding-left: 0px;
 }
 
-/** style(tabs) add text shadow for title */
-.monaco-icon-label > .monaco-icon-label-container > .monaco-icon-name-container > .label-name {
-  text-shadow: var(--al-label-name-shadow, 0px 2px 4px rgba(0, 0, 0, 0.15));
-}
-
-/** style(tabs) hide tab close button and changes counter */
-.monaco-workbench
-  .part.editor
-  > .content
-  .editor-group-container
-  > .title
-  .tabs-container
-  > .tab
-  > .monaco-icon-label:after {
-  display: none;
-}
-
-/** style(tabs) add icon shadow */
-.monaco-workbench .part.editor > .content .editor-group-container > .title .monaco-icon-label:before {
-  filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.75));
-}
-
-/** style(tabs) apply configurable height for container */
-.monaco-workbench .part.editor > .content .editor-group-container > .title > .tabs-and-actions-container {
-  --tabs-border-bottom-color: var(--al-pane-split-color) !important;
-}
-
-/** style(tabs) apply configurable sizes for tab item */
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container {
-  --editor-group-tab-height: calc(var(--al-tab-height) - (var(--al-tab-y-offset) * 2));
-  padding: var(--al-tab-y-offset) 6px var(--al-tab-y-offset) 8px;
-  gap: 8px;
-}
-
-/** style(tabs) apply configurable radius for tab item */
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab {
-  border-radius: var(--al-tab-borderRadius, 4px);
-  overflow: hidden;
-  border-right: none !important;
-  --tab-border-bottom-color: transparent !important;
-}
-
-/** style(tabs) outline glowing for tab item */
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active {
-  outline: 2px dashed var(--vscode-tab-activeBackground) !important;
-  outline-offset: 2px !important;
-}
-
-/** styles(tabs) configurable title color */
-.monaco-workbench
-  .part.editor
-  > .content
-  .editor-group-container
-  > .title
-  .tabs-container
-  > .tab.active
-  .monaco-icon-name-container {
-  color: var(--al-tab-activeColor, var(--vscode-tab-activeForeground)) !important;
-}
-
 /** fix(tabs) hide [tabs][editor] divider */
 .monaco-workbench
   .part.editor
@@ -365,48 +142,6 @@ div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.left.first
   > .tab
   > .tab-border-top-container {
   display: none !important;
-}
-
-/** styles(tabs) configurable title font size */
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label a,
-.monaco-workbench .part.editor > .content .editor-group-container > .title .title-label a {
-  font-size: var(--al-tab-fontSize, 14px);
-}
-
-/** fix(tabs) remove title mask which use color to fade */
-.monaco-workbench
-  .part.editor
-  .editor-group-container
-  > .title
-  .tabs-container
-  > .tab
-  > .tab-label
-  > .monaco-icon-label-container::after {
-  display: none;
-}
-
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label {
-  font-size: var(--al-tab-fontSize, 14px);
-  align-items: center;
-  mask-image: linear-gradient(to right, black calc(100% - 5px), transparent 100%);
-  mask-repeat: no-repeat;
-}
-
-/** fix(tabs) icon/title align and disable title truncate */
-.tabs-container .monaco-icon-label-container {
-  display: flex;
-  align-items: center;
-  overflow: visible !important;
-}
-
-.monaco-workbench
-  .part.editor
-  > .content
-  .editor-group-container
-  > .title
-  > .tabs-and-actions-container.tabs-border-bottom:after {
-  left: var(--tabs-border-left-offset, 0px);
-  width: calc(100% - var(--tabs-border-left-offset, 0px));
 }
 
 /** fix(tabs) apc backward capability */

@@ -1,0 +1,37 @@
+/* style(command-palette) centring */
+.quick-input-widget {
+  transform: translateY(-50%) !important;
+  top: 50% !important;
+  outline: 1px solid var(--vscode-focusBorder, var(--vscode-input-border, transparent));
+}
+
+.quick-input-list .monaco-list {
+  max-height: initial !important;
+  height: 35vh !important;
+}
+
+.monaco-grid-view {
+  transition: filter 200ms ease;
+}
+
+/** style(command-palette) add blur underlay */
+body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
+  filter: blur(var(--al-command-palette-blur-amount, 4px)) brightness(70%) !important;
+}
+
+/** style(command-palette) remove blur underlay when color theme selection */
+body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view,
+body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .monaco-grid-view {
+  filter: initial !important;
+}
+
+/** style(command-palette-input) hide right padding  */
+.monaco-action-bar.quick-input-inline-action-bar {
+  display: none;
+}
+
+/** style(quick-search) makes location text right aligned */
+.quick-input-list-row div {
+  display: flex !important;
+  align-items: center !important;
+}

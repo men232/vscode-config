@@ -1,0 +1,9 @@
+/** style(editor) hide title actions */
+.monaco-workbench .part.editor > .content .editor-group-container > .title .editor-actions {
+  display: none !important;
+}
+
+/** style(sidebar) hide explorer actions */
+.monaco-workbench .part > .composite.title > .title-actions {
+  display: none !important;
+}
