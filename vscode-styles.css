@@ -36,15 +36,15 @@ body .monaco-workbench {
   display: none !important;
 }
 
+/** style(command-palette-input) hide right padding  */
+.monaco-action-bar.quick-input-inline-action-bar {
+  display: none;
+}
+
 /** fix(search) file icon positions */
 .filematch .monaco-icon-label:before,
 .custom-list-row.results .monaco-list-row .monaco-icon-label:before {
   background-position: 0 bottom !important;
-}
-
-/** fix(search) file badge inset text position */
-.filematch .monaco-count-badge {
-  padding: 5px 6px 0 6px !important;
 }
 
 /** fix(sidebar) title position */
@@ -134,35 +134,34 @@ body .monaco-workbench {
   border-color: var(--vscode-terminalCursor-foreground);
 }
 
-/** fix(quick-search) icons position */
+/** fix(quick-search) makes location text right aligned */
 .quick-input-list-row div {
   display: flex !important;
   align-items: center !important;
 }
 
 /** style(left-sidebar) hide other tabs when terminal selected */
-.panel:has(.terminal-outer-container) .composite.title {
+.panel.left:has(.terminal-outer-container) .composite.title {
   visibility: hidden;
-  height: 25px;
+  height: 20px;
 }
 
-/** style(terminal) hide title in fullscreen */
-.fullscreen .panel:has(.terminal-outer-container) .composite.title {
+.fullscreen .panel.left:has(.terminal-outer-container) .composite.title {
   display: none;
 }
 
 /** style(terminal) compact padding */
 .monaco-workbench .terminal-wrapper .xterm {
-  padding: 0px 10px 2px !important;
+  padding-left: 10px;
 }
 
 /** fix(terminal) extra padding to avoid overlap with traffic light */
-.panel .composite.title {
-  padding-left: 3.5rem;
+.monaco-workbench .part.panel.left > .composite.title {
+  padding-left: 4rem;
 }
 
 /** fix(terminal) remove extra padding when fullscreen */
-.fullscreen .panel .composite.title {
+.monaco-workbench.fullscreen .part.panel.left > .composite.title {
   padding-left: 0;
 }
 
@@ -172,7 +171,7 @@ body .monaco-workbench {
   background-color: color-mix(in srgb, var(--vscode-editorStickyScroll-background) 90%, transparent) !important;
 }
 
-/** styles(workbench) override origianl colors with mixed to achive smooth shade */
+/** styles(workbench) override original colors with mixed to achieve smooth shade */
 .monaco-workbench {
   --vscode-sideBarStickyScroll-background: transparent;
   --vscode-terminal-background: var(--vscode-editor-background-proxy);
@@ -189,7 +188,9 @@ body .monaco-workbench {
   app-region: drag;
 }
 
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab {
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab,
+.editor-actions,
+.title-actions {
   app-region: no-drag;
 }
 
@@ -214,11 +215,6 @@ body .monaco-workbench {
 /** style(find-widget) */
 .editor-widget.find-widget {
   border-radius: 4px;
-}
-
-/** style(command-palette-input) remove right padding  */
-.monaco-action-bar.quick-input-inline-action-bar {
-  display: none;
 }
 
 /* style(command-palette) centring */
@@ -286,11 +282,11 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .mona
 }
 
 /** style(statusbar) remove side icons offset **/
-.monaco-workbench .part.statusbar > .items-container > .statusbar-item.right.last-visible-item {
+div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.right.last-visible-item {
   margin-right: unset;
 }
 
-.monaco-workbench .part.statusbar > .items-container > .statusbar-item.left.first-visible-item {
+div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.left.first-visible-item {
   padding-left: 0px;
 }
 
@@ -387,7 +383,6 @@ body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .mona
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label {
   font-size: var(--al-tab-fontSize, 14px);
   align-items: center;
-  /** add mask for title */
   mask-image: linear-gradient(to right, black calc(100% - 5px), transparent 100%);
   mask-repeat: no-repeat;
 }
