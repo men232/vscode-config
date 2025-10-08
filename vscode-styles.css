@@ -37,6 +37,11 @@ body .monaco-workbench {
   padding-left: 4rem;
 }
 
+/** fix(terminal) terminal border color */
+.monaco-workbench .part.panel.bottom .composite.title {
+  border-top-color: var(--al-pane-split-color) !important;
+}
+
 /** fix(terminal) remove extra padding when fullscreen */
 .monaco-workbench.fullscreen .part.panel.left > .composite.title {
   padding-left: 0;
