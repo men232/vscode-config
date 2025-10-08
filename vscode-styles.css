@@ -160,8 +160,8 @@ div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.left.first
   --tabs-border-left-offset: calc(var(--traffic-offset) * -1);
 }
 
-/** fix(tabs) remove traffic offset when no sidebar or fullscreen */
-.monaco-workbench:not(.nopanel),
+/** fix(tabs) remove traffic offset when left sidebar or fullscreen */
+.monaco-workbench:not(.nopanel):has(.part.panel.left),
 .monaco-workbench.fullscreen {
   --traffic-offset: 0px !important;
 }
