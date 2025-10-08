@@ -40,6 +40,7 @@ body .monaco-workbench {
 /** fix(terminal) terminal border color */
 .monaco-workbench .part.panel.bottom .composite.title {
   border-top-color: var(--al-pane-split-color) !important;
+  border-bottom-color: var(--al-pane-split-color) !important;
 }
 
 /** fix(terminal) remove extra padding when fullscreen */
@@ -101,7 +102,7 @@ body .monaco-workbench {
 
 /** style(sidebar) remove title border bottom */
 .monaco-workbench .part.sidebar > .title {
-  border-bottom: none !important;
+  border-bottom-color: var(--al-pane-split-color) !important;
 }
 
 /** style(editor) apply general background color */
@@ -147,6 +148,11 @@ div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.left.first
   > .tab
   > .tab-border-top-container {
   display: none !important;
+}
+
+/** fix(tabs) split color */
+.title.tabs.title-border-bottom {
+  --title-border-bottom-color: var(--al-pane-split-color) !important;
 }
 
 /** fix(tabs) apc backward capability */

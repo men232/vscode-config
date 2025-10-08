@@ -110,3 +110,12 @@ body .monaco-workbench {
   left: var(--tabs-border-left-offset, 0px);
   width: calc(100% - var(--tabs-border-left-offset, 0px));
 }
+
+/** style(sidebar) same height for pixel perfect of splitter line */
+.monaco-workbench .part.sidebar > .title {
+  height: var(--al-tab-height);
+}
+
+.monaco-workbench .part.sidebar > .title > .title-label {
+  line-height: var(--al-tab-height);
+}

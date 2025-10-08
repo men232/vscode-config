@@ -151,6 +151,7 @@
     "file://${userHome}/Documents/vscode-config/features/explorer.css",
     "file://${userHome}/Documents/vscode-config/features/command-palette.css",
     "file://${userHome}/Documents/vscode-config/features/hide-editor-buttons.css",
+    "file://${userHome}/Documents/vscode-config/features/project-title-glow.css",
     "file://${userHome}/Documents/vscode-config/features/focus-glow.css"
   ]
 }
