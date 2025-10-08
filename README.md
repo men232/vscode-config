@@ -64,6 +64,46 @@ You can tweak various UI elements using the following CSS variables:
 --al-project-icon: '🤯'; /* Default: 🚀 */
 ```
 
+# Transparent mode
+
+1. **Adds** this properties into user settings (json)
+
+```json
+{
+  "custom-ui-style.electron": {
+    "transparent": true,
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "vibrancy": "fullscreen-ui"
+  }
+}
+```
+
+2. Increase transparency percent `--al-transparency-percent`
+
+Complete example
+
+```json
+{
+  "custom-ui-style.electron": {
+    "frame": false,
+    "transparent": true,
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "titleBarStyle": "hiddenInset",
+    "vibrancy": "fullscreen-ui",
+    "trafficLightPosition": {
+      "x": 15,
+      "y": 14
+    }
+  },
+  "custom-ui-style.stylesheet": {
+    /**
+     * Styles configuration
+     */
+    "body .monaco-workbench": "--al-transparency-percent: 10%; --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
+  }
+}
+```
+
 # ⚙️ Disabling Specific UI Effects
 
 Check the `custom-ui-style.external.imports`. You can comment out the CSS file related to a specific feature in your JSON configuration file.
