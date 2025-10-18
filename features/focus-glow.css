@@ -38,12 +38,12 @@
 .monaco-workbench .monaco-list:not(.element-focused):focus::after,
 .monaco-workbench .monaco-list:focus::after,
 .terminal.xterm.focus::after {
-  --base-color: var(--vscode-inlineEdit-gutterIndicator-primaryBorder);
+  --base-color: oklch(from var(--vscode-editor-background) 0.5 0.2 h);
 
   /* Multi-layered shadows */
-  --shadow-inner: color-mix(in srgb, var(--base-color) calc(40% + var(--al-pulse-progress) * 40%), transparent);
-  --shadow-outer: color-mix(in srgb, var(--base-color) calc(25% + var(--al-pulse-progress) * 15%), transparent);
-  --shadow-glow: color-mix(in srgb, var(--base-color) calc(15% + var(--al-pulse-progress) * 10%), transparent);
+  --shadow-inner: color-mix(in srgb, var(--base-color) calc(25% + var(--al-pulse-progress) * 40%), transparent);
+  --shadow-outer: color-mix(in srgb, var(--base-color) calc(0% + var(--al-pulse-progress) * 15%), transparent);
+  --shadow-glow: color-mix(in srgb, var(--base-color) calc(0% + var(--al-pulse-progress) * 10%), transparent);
 
   /* Dynamic border */
   --border-glow: color-mix(in srgb, var(--base-color) calc(var(--al-pulse-progress) * 60%), transparent);
@@ -51,6 +51,7 @@
   /* Improved transforms */
   border-radius: calc((1 - var(--al-highlight-progress)) * 1rem);
   transform: scale(calc(1 - ((1 - var(--al-highlight-progress)) * 0.03))) translateZ(0);
+  filter: blur(calc((1 - var(--al-highlight-progress)) * 1.5rem));
 
   content: "";
   position: absolute;
