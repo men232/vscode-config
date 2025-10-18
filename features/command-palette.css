@@ -21,7 +21,8 @@ body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
 
 /** style(command-palette) remove blur underlay when color theme selection */
 body:has(.quick-input-widget .monaco-list[aria-label*="Select Color Theme"]) .monaco-grid-view,
-body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .monaco-grid-view {
+body:has(.quick-input-widget .monaco-list[aria-label*="Select File Icon"]) .monaco-grid-view,
+body:has(.quick-input-widget .monaco-list[aria-label*="Marketplace Themes"]) .monaco-grid-view {
   filter: initial !important;
 }
 
