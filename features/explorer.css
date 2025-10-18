@@ -1,17 +1,18 @@
 /** style(sidebar) title */
 .monaco-workbench .part.sidebar > .title > .title-label h2 {
-  color: transparent !important;
-  text-transform: uppercase;
-  background: color-mix(
+  --title-color: color-mix(
     in srgb,
     color-mix(
       in srgb,
-      oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-foreground)) l c h / 1) 40%,
-      oklch(from var(--vscode-editor-background) 0.95 0.5 h)
+      oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-foreground)) l c h / 1) 60%,
+      oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-editor-background)) 0.95 0.5 h)
     ),
-    oklch(from var(--vscode-foreground) 0.5 c h / 1) 20%
+    oklch(from var(--vscode-editor-compositionBorder, var(--vscode-foreground)) l c h / 1) 80%
   );
-  background-clip: text;
+  text-transform: uppercase;
+  color: var(--title-color) !important;
+  font-weight: 600;
+  /* text-shadow: 0px 2px 4px oklch(from var(--vscode-editor-background) 0.1 c h / 0.15); */
 }
 
 /** style(sidebar) add rocket icon :) */
@@ -19,6 +20,10 @@
   display: inline-block;
   margin-right: 6px;
   content: var(--al-project-icon, "🚀");
+  color: transparent !important;
+  background: var(--title-color);
+  background-clip: text;
+  text-shadow: none;
 }
 
 /** fix(sidebar) title position */
