@@ -1,11 +1,27 @@
 /** Register custom css variables and color shade alignment */
 body .monaco-workbench {
-  --vscode-tab-inactiveBackground: rgba(255, 255, 255, 0.05);
+  --vscode-tab-inactiveBackground: color-mix(
+    in srgb,
+    var(--vscode-tab-activeForeground, var(--vscode-foreground)) 5%,
+    transparent
+  );
   --vscode-tab-activeBackground: var(
     --al-tab-activeBackground,
-    var(--vscode-tab-activeBorderTop, rgba(255, 255, 255, 0.12))
+    var(
+      --vscode-tab-activeBorderTop,
+      color-mix(in srgb, var(--vscode-tab-activeForeground, var(--vscode-foreground)) 12%, transparent)
+    )
   );
   --titlebar-height: var(--al-tab-height);
+  --tab-activeColor: var(--al-tab-activeColor, var(--vscode-tab-activeForeground));
+}
+
+body .monaco-workbench.vs {
+  --tab-activeColor: var(--al-tab-activeColor, color-mix(in srgb, rgb(from var(--vscode-tab-activeBackground) r g b / 1) 5%, black 95%));
+}
+
+body .monaco-workbench.vs-dark {
+  --tab-activeColor: var(--al-tab-activeColor, color-mix(in srgb, rgb(from var(--vscode-tab-activeBackground) r g b / 1) 5%, white 95%));
 }
 
 /** style(tabs) add text shadow for title */
@@ -65,7 +81,7 @@ body .monaco-workbench {
   .tabs-container
   > .tab.active
   .monaco-icon-name-container {
-  color: var(--al-tab-activeColor, var(--vscode-tab-activeForeground)) !important;
+  color: var(--tab-activeColor) !important;
 }
 
 /** styles(tabs) configurable title font size */
@@ -73,7 +89,6 @@ body .monaco-workbench {
 .monaco-workbench .part.editor > .content .editor-group-container > .title .title-label a {
   font-size: var(--al-tab-fontSize, 14px);
 }
-
 
 /** fix(tabs) remove title mask which use color to fade */
 .monaco-workbench
