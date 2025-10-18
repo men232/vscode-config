@@ -86,6 +86,7 @@
   },
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editor.tabSizing": "shrink",
+  "workbench.fontAliasing": "antialiased",
   // Sidebar explorer location
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
