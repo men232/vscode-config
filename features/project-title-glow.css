@@ -1,6 +1,7 @@
 /** style(sidebar) project title glow **/
 .monaco-workbench .part.sidebar > .title {
-  --glow-base-color: oklch(from var(--vscode-editor-background) 0.95 0.5 h);
+  --glow-base-color: oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-editor-background)) 0.95 0.5 h);
+  /* --glow-base-color: oklch(from var(--vscode-editor-background) 0.95 0.5 h); */
 }
 
 .monaco-workbench .part.sidebar > .title > .title-label::before {
