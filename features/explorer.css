@@ -1,7 +1,17 @@
 /** style(sidebar) title */
 .monaco-workbench .part.sidebar > .title > .title-label h2 {
-  color: rgb(from var(--vscode-inputOption-activeForeground) r g b / 100%) !important;
+  color: transparent !important;
   text-transform: uppercase;
+  background: color-mix(
+    in srgb,
+    color-mix(
+      in srgb,
+      oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-foreground)) l c h / 1) 40%,
+      oklch(from var(--vscode-editor-background) 0.95 0.5 h)
+    ),
+    oklch(from var(--vscode-foreground) 0.5 c h / 1) 20%
+  );
+  background-clip: text;
 }
 
 /** style(sidebar) add rocket icon :) */
