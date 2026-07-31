@@ -1,8 +1,8 @@
-/** style(sidebar) add rocket icon :) */
+/** style(sidebar) add rocket icon :) (cursor editor) — shares --al-project-icon */
 .monaco-pane-view .pane > .pane-header .title[aria-label^="Explorer Section:"]:before {
   display: inline-block;
   margin-right: 6px;
-  content: "🚀";
+  content: var(--al-project-icon, "🚀");
 }
 
 /** style(sidebar) adjust explorer title font size */

@@ -1,0 +1,48 @@
+/**
+ * feat(active-line-spotlight) — soft gradient "spotlight" on the active line
+ * plus a gentle glow on matching brackets. Pairs with focus-glow and relies on
+ * `editor.renderLineHighlight: "all"`. Opt-out: comment out this file's import.
+ * Tunable via the `--al-spotlight-*` / `--al-bracket-glow-*` tokens.
+ */
+
+/**
+ * style(active-line) horizontal gradient spotlight over the content line —
+ * bright in the middle, fading at both edges. Replaces the flat fill + border.
+ */
+.monaco-editor .view-overlays .current-line {
+  /* border: none !important; */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--al-spotlight-color) calc(var(--al-spotlight-intensity, 1) * 14%), transparent) 50%,
+    transparent 100%
+  ) !important;
+  transition: background var(--al-spotlight-duration, 0.2s) ease !important;
+}
+
+/**
+ * style(active-line) keep the line-number margin reading as part of the active
+ * line — a subtle flat tint (a 90deg gradient would vanish in the narrow gutter).
+ */
+.monaco-editor .margin-view-overlays .current-line-margin {
+  border: none !important;
+  background: color-mix(in srgb, var(--al-spotlight-color) calc(var(--al-spotlight-intensity, 1) * 6%), transparent) !important;
+  transition: background var(--al-spotlight-duration, 0.2s) ease !important;
+}
+
+/** style(bracket-match) soft glow instead of the default hard outlined box */
+.monaco-editor .bracket-match {
+  border-color: transparent !important;
+  border-radius: 3px !important;
+  background: color-mix(in srgb, var(--al-bracket-glow-color) 12%, transparent) !important;
+  box-shadow: 0 0 var(--al-bracket-glow-blur, 6px)
+    color-mix(in srgb, var(--al-bracket-glow-color) 45%, transparent) !important;
+}
+
+/** a11y(active-line-spotlight) respect reduced-motion: drop the fade transition */
+@media (prefers-reduced-motion: reduce) {
+  .monaco-editor .view-overlays .current-line,
+  .monaco-editor .margin-view-overlays .current-line-margin {
+    transition: none !important;
+  }
+}

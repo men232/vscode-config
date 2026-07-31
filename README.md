@@ -38,31 +38,47 @@ cp ~/Documents/vscode-config/vscode-settings.json ./settings.json
 
 # 🎨 Customization
 
-You can tweak various UI elements using the following CSS variables:
+All tunable knobs are declared with defaults at the top of
+[`vscode-styles.css`](vscode-styles.css) (the single source of truth). Override
+any of them inside the `"body .monaco-workbench"` string in
+`custom-ui-style.stylesheet` — that selector always wins over the defaults.
 
 ```
-/* Global transparency amount */
---al-transparency-percent: 25%;
+/* --- Surface / palette --- */
+--al-transparency-percent: 0%;   /* raise only in transparent mode */
+--al-pane-split-transparent: 6%; /* editor/pane split line opacity */
 
-/* Editor split line color */
---al-pane-split-color: rgb(255, 255, 255);
---al-pane-split-transparent: 2.5%;
-
-/* Tabs title shadow */
---al-label-name-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-
-/* Tabs adjustments (Highly requested feature! 😆) */
+/* --- Tabs --- */
 --al-tab-height: 38px;
 --al-tab-y-offset: 7px;
-
---al-tab-activeBackground: white;
---al-tab-activeColor: black;
 --al-tab-fontSize: 14px;
 --al-tab-borderRadius: 4px;
+--al-tab-activeBackground: white;
+--al-tab-activeColor: black;
+--al-tab-label-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+/* Active tab emphasis — dashed by default; try a solid line or a soft glow: */
+--al-tab-active-outline: 1px solid var(--vscode-tab-activeBackground);
+--al-tab-active-outline-offset: 2px;
 
-/* Custom project icon (Explorer) */
---al-project-icon: '🤯'; /* Default: 🚀 */
+/* --- Explorer / project title --- */
+--al-project-icon: '🤯';           /* Default: 🚀 (used everywhere) */
+--al-title-glow-color: cyan;       /* project-title-glow accent */
+--al-title-glow-intensity: 1;      /* 0 = off … 1 = default */
+
+/* --- Command palette --- */
+--al-command-palette-blur-amount: 4px;
+--al-command-palette-height: 35vh;
+--al-command-palette-brightness: 70%; /* underlay dim; 100% = no dimming */
+
+/* --- Focus glow --- */
+--al-focus-glow-color: oklch(from var(--vscode-editor-background) 0.5 0.2 h);
+--al-focus-glow-duration: 0.4s;
+--al-focus-glow-blur: 1.5rem;
+--al-focus-glow-scale: 0.03;
 ```
+
+> **Accessibility:** the focus-glow animation is automatically disabled under
+> `prefers-reduced-motion: reduce` (a calm static glow remains).
 
 # Transparent mode
 

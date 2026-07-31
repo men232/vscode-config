@@ -38,7 +38,7 @@
 .monaco-workbench .monaco-list:not(.element-focused):focus::after,
 .monaco-workbench .monaco-list:focus::after,
 .terminal.xterm.focus::after {
-  --base-color: oklch(from var(--vscode-editor-background) 0.5 0.2 h);
+  --base-color: var(--al-focus-glow-color, oklch(from var(--vscode-editor-background) 0.5 0.2 h));
 
   /* Multi-layered shadows */
   --shadow-inner: color-mix(in srgb, var(--base-color) calc(25% + var(--al-pulse-progress) * 40%), transparent);
@@ -50,8 +50,8 @@
 
   /* Improved transforms */
   border-radius: calc((1 - var(--al-highlight-progress)) * 1rem);
-  transform: scale(calc(1 - ((1 - var(--al-highlight-progress)) * 0.03))) translateZ(0);
-  filter: blur(calc((1 - var(--al-highlight-progress)) * 1.5rem));
+  transform: scale(calc(1 - ((1 - var(--al-highlight-progress)) * var(--al-focus-glow-scale, 0.03)))) translateZ(0);
+  filter: blur(calc((1 - var(--al-highlight-progress)) * var(--al-focus-glow-blur, 1.5rem)));
 
   content: "";
   position: absolute;
@@ -62,12 +62,26 @@
   pointer-events: none;
   z-index: 10;
 
-  animation: focusFlash 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: focusFlash var(--al-focus-glow-duration, 0.4s) cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   box-shadow: 0 0 0 1px var(--border-glow), 0 0 4px var(--shadow-glow), inset 0 0 20px var(--shadow-inner),
     inset 0 0 12px var(--shadow-inner);
 
   transition: all 0.15s ease-out;
+}
+
+/** a11y(focus-glow) respect reduced-motion: drop the flash, keep a calm resting glow */
+@media (prefers-reduced-motion: reduce) {
+  .monaco-editor.focused::after,
+  .monaco-workbench .monaco-list:not(.element-focused):focus::after,
+  .monaco-workbench .monaco-list:focus::after,
+  .terminal.xterm.focus::after {
+    animation: none !important;
+    --al-highlight-progress: 1;
+    --al-pulse-progress: 0;
+    transform: none;
+    filter: none;
+  }
 }
 
 /** style(sidebar) remove focus outline */

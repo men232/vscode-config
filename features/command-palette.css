@@ -7,7 +7,7 @@
 
 .quick-input-list .monaco-list {
   max-height: initial !important;
-  height: 35vh !important;
+  height: var(--al-command-palette-height, 35vh) !important;
 }
 
 .monaco-grid-view {
@@ -16,7 +16,7 @@
 
 /** style(command-palette) add blur underlay */
 body:has(.quick-input-widget:not([style*="display: none;"])) .monaco-grid-view {
-  filter: blur(var(--al-command-palette-blur-amount, 4px)) brightness(70%) !important;
+  filter: blur(var(--al-command-palette-blur-amount, 4px)) brightness(var(--al-command-palette-brightness, 70%)) !important;
 }
 
 /** style(command-palette) remove blur underlay when color theme selection */

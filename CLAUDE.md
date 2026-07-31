@@ -15,12 +15,15 @@ extension.
   into `~/Library/Application Support/Code/User/settings.json`. It configures the
   editor, disables most UI backgrounds via `workbench.colorCustomizations`, and
   wires up the Custom UI Style extension.
-- **`vscode-styles.css`** — the core stylesheet: transparency/blur, pane split
-  lines, cursor color, terminal borders, window-drag fixes, color-shade mixing.
+- **`vscode-styles.css`** — the core stylesheet (always loaded): starts with the
+  central `--al-*` design-token block (single source of truth for every tunable
+  knob), then transparency/blur, pane split lines, cursor color, terminal
+  borders, window-drag fixes, color-shade mixing. Add new knobs to the token
+  block at the top rather than as scattered inline fallbacks.
 - **`features/*.css`** — modular, **opt-out** feature stylesheets. Each is loaded
   independently so a user can disable one by commenting out its import:
   `tabs`, `terminal`, `explorer`, `command-palette`, `hide-editor-buttons`,
-  `project-title-glow`, `focus-glow`.
+  `project-title-glow`, `focus-glow`, `statusbar`, `launch-icon`.
 - **`cursor-styles.css`** — extra overrides specific to the Cursor editor fork.
 - **`keybindings.json`** — companion keybindings.
 - **`README.md`** — end-user install/customization docs. **`Preview.png`** — screenshot.

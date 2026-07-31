@@ -1,11 +1,14 @@
 /** style(sidebar) project title glow **/
 .monaco-workbench .part.sidebar > .title {
-  --glow-base-color: oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-editor-background)) 0.95 0.5 h);
+  --glow-base-color: var(
+    --al-title-glow-color,
+    oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-editor-background)) 0.95 0.5 h)
+  );
   /* --glow-base-color: oklch(from var(--vscode-editor-background) 0.95 0.5 h); */
 }
 
 .monaco-workbench .part.sidebar > .title > .title-label::before {
-  --glow-color: color-mix(in srgb, var(--glow-base-color) 20%, transparent);
+  --glow-color: color-mix(in srgb, var(--glow-base-color) calc(20% * var(--al-title-glow-intensity, 1)), transparent);
   content: "";
   position: absolute;
   top: 0;
@@ -24,7 +27,12 @@
   left: -60px;
   width: 340px;
   height: 1px;
-  background: linear-gradient(to right, transparent 0%, var(--glow-base-color) 50%, transparent 100%);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    color-mix(in srgb, var(--glow-base-color) calc(100% * var(--al-title-glow-intensity, 1)), transparent) 50%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 

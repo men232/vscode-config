@@ -168,6 +168,14 @@
     },
     {
       "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/suggest-widget.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/active-line-spotlight.css"
+    },
+    {
+      "type": "css",
       "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/hide-editor-buttons.css"
     },
     {
@@ -177,6 +185,14 @@
     {
       "type": "css",
       "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/focus-glow.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/statusbar.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/launch-icon.css"
     }
   ]
 }

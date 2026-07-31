@@ -1,0 +1,47 @@
+/**
+ * feat(suggest-widget) — glassy autocomplete / IntelliSense popup.
+ *
+ * Mirrors the command-palette blur aesthetic for the suggestion widget, its
+ * details pane and hover tooltips. Opt-out: comment out this file's import in
+ * `custom-ui-style.external.imports`. Tunable via the `--al-suggest-widget-*`
+ * tokens declared in vscode-styles.css.
+ */
+
+/** style(suggest-widget) glassy translucent container */
+.monaco-editor .suggest-widget,
+.monaco-editor .suggest-details {
+  background: color-mix(
+    in srgb,
+    var(--vscode-editorSuggestWidget-background) var(--al-suggest-widget-opacity, 80%),
+    transparent
+  ) !important;
+  backdrop-filter: blur(var(--al-suggest-widget-blur-amount, 12px)) !important;
+  overflow: hidden !important;
+}
+
+/**
+ * style(suggest-widget) glassy hover / parameter-hint tooltips to match.
+ * Colour + blur go on the OUTER resizable wrapper only; the inner
+ * .monaco-hover is forced transparent so the translucent layer (and blur)
+ * isn't painted twice and the opacity doesn't accumulate.
+ */
+.monaco-editor .monaco-resizable-hover {
+  background: color-mix(
+    in srgb,
+    var(--vscode-editorHoverWidget-background) var(--al-suggest-widget-opacity, 80%),
+    transparent
+  ) !important;
+  backdrop-filter: blur(var(--al-suggest-widget-blur-amount, 12px)) !important;
+  overflow: hidden !important;
+}
+
+/** style(suggest-widget) keep inner hover transparent — single colour layer */
+.monaco-editor .monaco-resizable-hover .monaco-hover {
+  background: transparent !important;
+}
+
+/** fix(suggest-widget) centre the "No suggestions" message — default is block */
+.monaco-editor .suggest-widget.message {
+  display: flex !important;
+  align-items: center !important;
+}

@@ -26,7 +26,7 @@ body .monaco-workbench.vs-dark {
 
 /** style(tabs) add text shadow for title */
 .monaco-icon-label > .monaco-icon-label-container > .monaco-icon-name-container > .label-name {
-  text-shadow: var(--al-label-name-shadow, 0px 2px 4px rgba(0, 0, 0, 0.15));
+  text-shadow: var(--al-tab-label-shadow, 0px 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 /** style(tabs) hide tab close button and changes counter */
@@ -66,10 +66,10 @@ body .monaco-workbench.vs-dark {
   --tab-border-bottom-color: transparent !important;
 }
 
-/** style(tabs) outline glowing for tab item */
+/** style(tabs) outline glowing for tab item (swap --al-tab-active-outline for solid/glow) */
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active {
-  outline: 2px dashed var(--vscode-tab-activeBackground) !important;
-  outline-offset: 2px !important;
+  outline: var(--al-tab-active-outline, 2px dashed var(--vscode-tab-activeBackground)) !important;
+  outline-offset: var(--al-tab-active-outline-offset, 2px) !important;
 }
 
 /** styles(tabs) configurable title color */
