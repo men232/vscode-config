@@ -41,6 +41,8 @@ body .monaco-workbench {
 .monaco-workbench .part.panel.bottom .composite.title {
   border-top-color: var(--al-pane-split-color) !important;
   border-bottom-color: var(--al-pane-split-color) !important;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 /** fix(terminal) remove extra padding when fullscreen */
@@ -130,11 +132,11 @@ body .monaco-workbench {
 }
 
 /** style(statusbar) remove side icons offset **/
-div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.right.last-visible-item {
+div.monaco-workbench .part.statusbar > .items-container > .statusbar-item.right.last-visible-item {
   margin-right: unset;
 }
 
-div.monaco-workbench .part.statusbar>.items-container>.statusbar-item.left.first-visible-item {
+div.monaco-workbench .part.statusbar > .items-container > .statusbar-item.left.first-visible-item {
   padding-left: 0px;
 }
 

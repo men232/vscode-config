@@ -146,13 +146,37 @@
   },
   "custom-ui-style.external.loadStrategy": "refetch",
   "custom-ui-style.external.imports": [
-    "file://${userHome}/Documents/vscode-config/vscode-styles.css",
-    "file://${userHome}/Documents/vscode-config/features/tabs.css",
-    "file://${userHome}/Documents/vscode-config/features/terminal.css",
-    "file://${userHome}/Documents/vscode-config/features/explorer.css",
-    "file://${userHome}/Documents/vscode-config/features/command-palette.css",
-    "file://${userHome}/Documents/vscode-config/features/hide-editor-buttons.css",
-    "file://${userHome}/Documents/vscode-config/features/project-title-glow.css",
-    "file://${userHome}/Documents/vscode-config/features/focus-glow.css"
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/vscode-styles.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/tabs.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/terminal.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/explorer.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/command-palette.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/hide-editor-buttons.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/project-title-glow.css"
+    },
+    {
+      "type": "css",
+      "url": "https://raw.githubusercontent.com/men232/vscode-config/refs/heads/main/features/focus-glow.css"
+    }
   ]
 }
