@@ -1,10 +1,14 @@
 /** style(sidebar) project title glow **/
 .monaco-workbench .part.sidebar > .title {
+  /** --title-hash-color is hashed from the project name at the bottom of this file;
+   *  with no explorer root header around it stays unset and we fall back to the theme hue. **/
   --glow-base-color: var(
     --al-title-glow-color,
-    oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-editor-background)) 0.95 0.5 h)
+    var(
+      --title-hash-color,
+      oklch(from var(--vscode-sideBarTitle-foreground, var(--vscode-editor-background)) 0.95 0.5 h)
+    )
   );
-  /* --glow-base-color: oklch(from var(--vscode-editor-background) 0.95 0.5 h); */
 }
 
 .monaco-workbench .part.sidebar > .title > .title-label::before {
@@ -36,15 +40,112 @@
   pointer-events: none;
 }
 
-/* .monaco-workbench .part.sidebar > .title::after {
-  --glow-color: color-mix(in srgb, var(--vscode-textLink-foreground) 20%, transparent);
+/** feat(sidebar) derive a stable glow hue from the project name **/
+@property --title-hash-a {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
 
-  content: "";
-  position: absolute;
-  top: calc(var(--al-tab-height) - 1px);
-  left: -60px;
-  width: 340px;
-  height: 1px;
-  background: linear-gradient(to right, transparent 0%, var(--glow-color) 50%, transparent 100%);
-  pointer-events: none;
-} */
+@property --title-hash-b {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+/** feat(sidebar) hash digits -> hue. Golden angle over the 36*36 buckets spreads
+ *  neighbouring names as far apart as possible; oklch wraps hue itself, no mod() needed. **/
+@function --project-hue(--a <number>, --b <number>) returns <angle> {
+  result: calc((var(--a) * 36 + var(--b)) * 137.508deg);
+}
+
+/** feat(sidebar) hash digits -> glow color. Lightness/chroma kept as defaults so a single
+ *  call site can dim the whole thing without touching the hue math. **/
+@function --project-glow(--a <number>, --b <number>, --l <number>: 0.95, --c <number>: 0.5)
+  returns <color> {
+  result: oklch(var(--l) var(--c) --project-hue(var(--a), var(--b)));
+}
+
+/** feat(sidebar) only expose a hashed color when the explorer root header is actually in the
+ *  DOM, so project title glow falls back to its theme-derived color otherwise. Same happens on
+ *  a Chromium without @function: the value goes invalid-at-computed-value-time, which makes the
+ *  custom property guaranteed-invalid, which makes var() take its fallback. **/
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: "] + .pane-body .explorer-folders-view) {
+  --title-hash-color: --project-glow(var(--title-hash-a), var(--title-hash-b));
+}
+
+/** feat(sidebar) digit 1: first character of the project name **/
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: a" i] + .pane-body .explorer-folders-view) { --title-hash-a: 0; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: b" i] + .pane-body .explorer-folders-view) { --title-hash-a: 1; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: c" i] + .pane-body .explorer-folders-view) { --title-hash-a: 2; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: d" i] + .pane-body .explorer-folders-view) { --title-hash-a: 3; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: e" i] + .pane-body .explorer-folders-view) { --title-hash-a: 4; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: f" i] + .pane-body .explorer-folders-view) { --title-hash-a: 5; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: g" i] + .pane-body .explorer-folders-view) { --title-hash-a: 6; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: h" i] + .pane-body .explorer-folders-view) { --title-hash-a: 7; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: i" i] + .pane-body .explorer-folders-view) { --title-hash-a: 8; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: j" i] + .pane-body .explorer-folders-view) { --title-hash-a: 9; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: k" i] + .pane-body .explorer-folders-view) { --title-hash-a: 10; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: l" i] + .pane-body .explorer-folders-view) { --title-hash-a: 11; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: m" i] + .pane-body .explorer-folders-view) { --title-hash-a: 12; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: n" i] + .pane-body .explorer-folders-view) { --title-hash-a: 13; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: o" i] + .pane-body .explorer-folders-view) { --title-hash-a: 14; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: p" i] + .pane-body .explorer-folders-view) { --title-hash-a: 15; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: q" i] + .pane-body .explorer-folders-view) { --title-hash-a: 16; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: r" i] + .pane-body .explorer-folders-view) { --title-hash-a: 17; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: s" i] + .pane-body .explorer-folders-view) { --title-hash-a: 18; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: t" i] + .pane-body .explorer-folders-view) { --title-hash-a: 19; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: u" i] + .pane-body .explorer-folders-view) { --title-hash-a: 20; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: v" i] + .pane-body .explorer-folders-view) { --title-hash-a: 21; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: w" i] + .pane-body .explorer-folders-view) { --title-hash-a: 22; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: x" i] + .pane-body .explorer-folders-view) { --title-hash-a: 23; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: y" i] + .pane-body .explorer-folders-view) { --title-hash-a: 24; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: z" i] + .pane-body .explorer-folders-view) { --title-hash-a: 25; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 0" i] + .pane-body .explorer-folders-view) { --title-hash-a: 26; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 1" i] + .pane-body .explorer-folders-view) { --title-hash-a: 27; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 2" i] + .pane-body .explorer-folders-view) { --title-hash-a: 28; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 3" i] + .pane-body .explorer-folders-view) { --title-hash-a: 29; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 4" i] + .pane-body .explorer-folders-view) { --title-hash-a: 30; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 5" i] + .pane-body .explorer-folders-view) { --title-hash-a: 31; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 6" i] + .pane-body .explorer-folders-view) { --title-hash-a: 32; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 7" i] + .pane-body .explorer-folders-view) { --title-hash-a: 33; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 8" i] + .pane-body .explorer-folders-view) { --title-hash-a: 34; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: 9" i] + .pane-body .explorer-folders-view) { --title-hash-a: 35; }
+
+/** feat(sidebar) digit 2: last character of the project name **/
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="a" i] + .pane-body .explorer-folders-view) { --title-hash-b: 0; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="b" i] + .pane-body .explorer-folders-view) { --title-hash-b: 1; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="c" i] + .pane-body .explorer-folders-view) { --title-hash-b: 2; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="d" i] + .pane-body .explorer-folders-view) { --title-hash-b: 3; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="e" i] + .pane-body .explorer-folders-view) { --title-hash-b: 4; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="f" i] + .pane-body .explorer-folders-view) { --title-hash-b: 5; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="g" i] + .pane-body .explorer-folders-view) { --title-hash-b: 6; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="h" i] + .pane-body .explorer-folders-view) { --title-hash-b: 7; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="i" i] + .pane-body .explorer-folders-view) { --title-hash-b: 8; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="j" i] + .pane-body .explorer-folders-view) { --title-hash-b: 9; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="k" i] + .pane-body .explorer-folders-view) { --title-hash-b: 10; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="l" i] + .pane-body .explorer-folders-view) { --title-hash-b: 11; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="m" i] + .pane-body .explorer-folders-view) { --title-hash-b: 12; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="n" i] + .pane-body .explorer-folders-view) { --title-hash-b: 13; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="o" i] + .pane-body .explorer-folders-view) { --title-hash-b: 14; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="p" i] + .pane-body .explorer-folders-view) { --title-hash-b: 15; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="q" i] + .pane-body .explorer-folders-view) { --title-hash-b: 16; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="r" i] + .pane-body .explorer-folders-view) { --title-hash-b: 17; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="s" i] + .pane-body .explorer-folders-view) { --title-hash-b: 18; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="t" i] + .pane-body .explorer-folders-view) { --title-hash-b: 19; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="u" i] + .pane-body .explorer-folders-view) { --title-hash-b: 20; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="v" i] + .pane-body .explorer-folders-view) { --title-hash-b: 21; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="w" i] + .pane-body .explorer-folders-view) { --title-hash-b: 22; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="x" i] + .pane-body .explorer-folders-view) { --title-hash-b: 23; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="y" i] + .pane-body .explorer-folders-view) { --title-hash-b: 24; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="z" i] + .pane-body .explorer-folders-view) { --title-hash-b: 25; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="0" i] + .pane-body .explorer-folders-view) { --title-hash-b: 26; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="1" i] + .pane-body .explorer-folders-view) { --title-hash-b: 27; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="2" i] + .pane-body .explorer-folders-view) { --title-hash-b: 28; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="3" i] + .pane-body .explorer-folders-view) { --title-hash-b: 29; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="4" i] + .pane-body .explorer-folders-view) { --title-hash-b: 30; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="5" i] + .pane-body .explorer-folders-view) { --title-hash-b: 31; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="6" i] + .pane-body .explorer-folders-view) { --title-hash-b: 32; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="7" i] + .pane-body .explorer-folders-view) { --title-hash-b: 33; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="8" i] + .pane-body .explorer-folders-view) { --title-hash-b: 34; }
+.monaco-workbench .part.sidebar:has([aria-label^="Explorer Section: " i][aria-label$="9" i] + .pane-body .explorer-folders-view) { --title-hash-b: 35; }

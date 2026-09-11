@@ -1,10 +1,1 @@
 /** feature(statusbar) cosmetic tweaks (moved out of core) */
-
-/** style(statusbar) remove side icons offset **/
-div.monaco-workbench .part.statusbar > .items-container > .statusbar-item.right.last-visible-item {
-  margin-right: unset;
-}
-
-div.monaco-workbench .part.statusbar > .items-container > .statusbar-item.left.first-visible-item {
-  padding-left: 0px;
-}

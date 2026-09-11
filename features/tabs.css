@@ -1,27 +1,54 @@
 /** Register custom css variables and color shade alignment */
-body .monaco-workbench {
-  --vscode-tab-inactiveBackground: color-mix(
+body .modern-ui-tabs.monaco-workbench.monaco-workbench {
+  --tab-activeColor: var(--al-tab-activeColor, var(--vscode-tab-activeForeground));
+
+  --modern-ui-editor-tab-hover-background: color-mix(
     in srgb,
-    var(--vscode-tab-activeForeground, var(--vscode-foreground)) 5%,
+    var(--modern-ui-editor-tab-inactive-background) 95%,
+    white
+  );
+
+  --modern-ui-editor-tab-inactive-background: color-mix(
+    in srgb,
+    var(--vscode-tab-activeForeground, var(--vscode-foreground)) 7%,
     transparent
   );
-  --vscode-tab-activeBackground: var(
+
+  --modern-ui-editor-tab-unfocused-active-background: var(--modern-ui-editor-tab-inactive-background);
+
+  --modern-ui-editor-tab-active-hover-background: color-mix(
+    in srgb,
+    var(--modern-ui-editor-tab-active-background) 95%,
+    white
+  );
+
+  --modern-ui-editor-tab-active-background: var(
     --al-tab-activeBackground,
     var(
       --vscode-tab-activeBorderTop,
       color-mix(in srgb, var(--vscode-tab-activeForeground, var(--vscode-foreground)) 12%, transparent)
     )
   );
-  --titlebar-height: var(--al-tab-height);
-  --tab-activeColor: var(--al-tab-activeColor, var(--vscode-tab-activeForeground));
 }
 
-body .monaco-workbench.vs {
-  --tab-activeColor: var(--al-tab-activeColor, color-mix(in srgb, rgb(from var(--vscode-tab-activeBackground) r g b / 1) 5%, black 95%));
+body .modern-ui-tabs.monaco-workbench.monaco-workbench.vs {
+  --tab-activeColor: var(
+    --al-tab-activeColor,
+    color-mix(in srgb, rgb(from var(--vscode-tab-activeBackground) r g b / 1) 5%, black 95%)
+  );
 }
 
-body .monaco-workbench.vs-dark {
-  --tab-activeColor: var(--al-tab-activeColor, color-mix(in srgb, rgb(from var(--vscode-tab-activeBackground) r g b / 1) 5%, white 95%));
+body .modern-ui-tabs.monaco-workbench.monaco-workbench.vs-dark {
+  --tab-activeColor: var(
+    --al-tab-activeColor,
+    color-mix(in srgb, rgb(from var(--vscode-tab-activeBackground) r g b / 1) 5%, white 95%)
+  );
+}
+
+/** fix(tabs) offset to avoid outline overlap container */
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container {
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 /** style(tabs) add text shadow for title */
@@ -49,26 +76,23 @@ body .monaco-workbench.vs-dark {
 /** style(tabs) apply configurable height for container */
 .monaco-workbench .part.editor > .content .editor-group-container > .title > .tabs-and-actions-container {
   --tabs-border-bottom-color: var(--al-pane-split-color) !important;
+  --editor-group-tab-height: var(--al-tab-height);
 }
 
 /** style(tabs) apply configurable sizes for tab item */
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container {
-  --editor-group-tab-height: calc(var(--al-tab-height) - (var(--al-tab-y-offset) * 2));
-  padding: var(--al-tab-y-offset) 6px var(--al-tab-y-offset) 8px;
-  gap: 8px;
+  gap: 4px;
+  padding-bottom: 3px;
 }
 
 /** style(tabs) apply configurable radius for tab item */
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab {
   border-radius: var(--al-tab-borderRadius, 4px);
-  overflow: hidden;
-  border-right: none !important;
-  --tab-border-bottom-color: transparent !important;
 }
 
 /** style(tabs) outline glowing for tab item (swap --al-tab-active-outline for solid/glow) */
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active {
-  outline: var(--al-tab-active-outline, 2px dashed var(--vscode-tab-activeBackground)) !important;
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active > .tab-fill {
+  outline: var(--al-tab-active-outline, 2px dashed var(--modern-ui-editor-tab-active-background)) !important;
   outline-offset: var(--al-tab-active-outline-offset, 2px) !important;
 }
 
@@ -87,7 +111,7 @@ body .monaco-workbench.vs-dark {
 /** styles(tabs) configurable title font size */
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label a,
 .monaco-workbench .part.editor > .content .editor-group-container > .title .title-label a {
-  font-size: var(--al-tab-fontSize, 14px);
+  font-size: var(--al-tab-fontSize, 13px) !important;
 }
 
 /** fix(tabs) remove title mask which use color to fade */
@@ -100,37 +124,4 @@ body .monaco-workbench.vs-dark {
   > .tab-label
   > .monaco-icon-label-container::after {
   display: none;
-}
-
-.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label {
-  font-size: var(--al-tab-fontSize, 14px);
-  align-items: center;
-  mask-image: linear-gradient(to right, black calc(100% - 5px), transparent 100%);
-  mask-repeat: no-repeat;
-}
-
-/** fix(tabs) icon/title align and disable title truncate */
-.tabs-container .monaco-icon-label-container {
-  display: flex;
-  align-items: center;
-  overflow: visible !important;
-}
-
-.monaco-workbench
-  .part.editor
-  > .content
-  .editor-group-container
-  > .title
-  > .tabs-and-actions-container.tabs-border-bottom:after {
-  left: var(--tabs-border-left-offset, 0px);
-  width: calc(100% - var(--tabs-border-left-offset, 0px));
-}
-
-/** style(sidebar) same height for pixel perfect of splitter line */
-.monaco-workbench .part.sidebar > .title {
-  height: var(--al-tab-height);
-}
-
-.monaco-workbench .part.sidebar > .title > .title-label {
-  line-height: var(--al-tab-height);
 }

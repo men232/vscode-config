@@ -9,10 +9,7 @@
     ),
     oklch(from var(--vscode-editor-compositionBorder, var(--vscode-foreground)) l c h / 1) 80%
   );
-  text-transform: uppercase;
   color: var(--title-color) !important;
-  font-weight: 600;
-  /* text-shadow: 0px 2px 4px oklch(from var(--vscode-editor-background) 0.1 c h / 0.15); */
 }
 
 /** style(sidebar) add rocket icon :) */
@@ -24,9 +21,4 @@
   background: var(--title-color);
   background-clip: text;
   text-shadow: none;
-}
-
-/** fix(sidebar) title position */
-.sidebar .title-label {
-  padding: 0 !important;
 }

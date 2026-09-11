@@ -49,9 +49,8 @@ any of them inside the `"body .monaco-workbench"` string in
 --al-pane-split-transparent: 6%; /* editor/pane split line opacity */
 
 /* --- Tabs --- */
---al-tab-height: 38px;
---al-tab-y-offset: 7px;
---al-tab-fontSize: 14px;
+--al-tab-height: 24px;
+--al-tab-fontSize: 13px;
 --al-tab-borderRadius: 4px;
 --al-tab-activeBackground: white;
 --al-tab-activeColor: black;
@@ -115,7 +114,7 @@ Complete example
     /**
      * Styles configuration
      */
-    "body .monaco-workbench": "--al-transparency-percent: 10%; --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
+    "body .monaco-workbench": "--al-transparency-percent: 10%; --al-tab-height: 24px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
   }
 }
 ```

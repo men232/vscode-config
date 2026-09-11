@@ -16,7 +16,6 @@
     transparent
   ) !important;
   backdrop-filter: blur(var(--al-suggest-widget-blur-amount, 12px)) !important;
-  overflow: hidden !important;
 }
 
 /**
@@ -32,7 +31,6 @@
     transparent
   ) !important;
   backdrop-filter: blur(var(--al-suggest-widget-blur-amount, 12px)) !important;
-  overflow: hidden !important;
 }
 
 /** style(suggest-widget) keep inner hover transparent — single colour layer */

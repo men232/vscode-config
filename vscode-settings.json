@@ -96,6 +96,7 @@
   // Terminal default location
   "workbench.panel.defaultLocation": "left",
   "workbench.editor.customLabels.enabled": true,
+  "workbench.experimental.modernUI": true,
   "workbench.editor.customLabels.patterns": {
     "**/src/**/index.ts": "${dirname}/${filename}"
   },
@@ -142,7 +143,7 @@
     /**
      * Styles configuration
      */
-    "body .monaco-workbench": "--al-transparency-percent: 0%; --al-tab-height: 38px; --al-tab-y-offset: 7px; --al-command-palette-blur-amount: 4px; --al-tab-fontSize: 14px;"
+    "body .monaco-workbench": "--al-transparency-percent: 0%; --al-command-palette-blur-amount: 4px;"
   },
   "custom-ui-style.external.loadStrategy": "refetch",
   "custom-ui-style.external.imports": [
