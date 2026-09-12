@@ -14,6 +14,7 @@ body .modern-ui-tabs.monaco-workbench.monaco-workbench {
     transparent
   );
 
+  --modern-ui-editor-tab-unfocused-inactive-background: var(--modern-ui-editor-tab-inactive-background);
   --modern-ui-editor-tab-unfocused-active-background: var(--modern-ui-editor-tab-inactive-background);
 
   --modern-ui-editor-tab-active-hover-background: color-mix(
@@ -47,8 +48,8 @@ body .modern-ui-tabs.monaco-workbench.monaco-workbench.vs-dark {
 
 /** fix(tabs) offset to avoid outline overlap container */
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container {
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 1px;
+  padding-right: 2px;
 }
 
 /** style(tabs) add text shadow for title */
@@ -75,14 +76,14 @@ body .modern-ui-tabs.monaco-workbench.monaco-workbench.vs-dark {
 
 /** style(tabs) apply configurable height for container */
 .monaco-workbench .part.editor > .content .editor-group-container > .title > .tabs-and-actions-container {
-  --tabs-border-bottom-color: var(--al-pane-split-color) !important;
+  --tabs-border-bottom-color: transparent !important;
   --editor-group-tab-height: var(--al-tab-height);
 }
 
 /** style(tabs) apply configurable sizes for tab item */
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container {
-  gap: 4px;
-  padding-bottom: 3px;
+  gap: 2px;
+  padding-bottom: 1px;
 }
 
 /** style(tabs) apply configurable radius for tab item */

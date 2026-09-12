@@ -49,7 +49,8 @@
   --border-glow: color-mix(in srgb, var(--base-color) calc(var(--al-pulse-progress) * 60%), transparent);
 
   /* Improved transforms */
-  border-radius: calc((1 - var(--al-highlight-progress)) * 1rem);
+  border-bottom-left-radius: calc((1 - var(--al-highlight-progress)) * var(--vscode-cornerRadius-large));
+  border-bottom-right-radius: calc((1 - var(--al-highlight-progress)) * var(--vscode-cornerRadius-large));
   transform: scale(calc(1 - ((1 - var(--al-highlight-progress)) * var(--al-focus-glow-scale, 0.03)))) translateZ(0);
   filter: blur(calc((1 - var(--al-highlight-progress)) * var(--al-focus-glow-blur, 1.5rem)));
 

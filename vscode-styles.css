@@ -177,7 +177,7 @@ body .monaco-workbench {
 
 /** fix(tabs) split color */
 .title.tabs.title-border-bottom {
-  --title-border-bottom-color: var(--al-pane-split-color) !important;
+  --title-border-bottom-color: transparent !important;
 }
 
 /** fix(tabs) apc backward capability */
@@ -193,7 +193,7 @@ body .monaco-workbench {
   .editor-group-container[data-keybinding-context="3"]
   > .tabs {
   padding-left: var(--traffic-offset);
-  --tabs-border-left-offset: calc(var(--traffic-offset) * -1);
+  /* --tabs-border-left-offset: calc(var(--traffic-offset) * -1); */
 }
 
 /** fix(tabs) remove traffic offset when left sidebar or fullscreen */
